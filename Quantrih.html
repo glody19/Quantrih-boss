@@ -1044,6 +1044,425 @@ table.results-table tr:hover td { background: var(--surface-2); }
 [data-theme="dark"] .plat-visit { color: var(--pv-blue-l); border-top-color: var(--border); }
 [data-theme="dark"] .plat-tagline { color: var(--text-3); }
 
+/* ─── FEATURED PLATFORMS · Institutional comparison ─────────────── */
+.featured-section { margin: 28px 0 24px; }
+.featured-section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 18px; flex-wrap: wrap; gap: 12px;
+}
+.featured-section-head h2 {
+  font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.01em;
+  margin: 0;
+}
+.featured-section-head .featured-sub {
+  font-size: 13px; color: var(--text-3); margin-top: 4px;
+}
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.featured-card {
+  position: relative; background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--r-md);
+  padding: 22px; box-shadow: var(--shadow-sm);
+  transition: all 0.18s ease; overflow: hidden;
+}
+.featured-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--pv-blue), var(--pv-blue-l));
+  opacity: 0; transition: opacity 0.2s;
+}
+.featured-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--pv-blue-l);
+  box-shadow: var(--shadow-lg);
+}
+.featured-card:hover::before { opacity: 1; }
+.featured-card-head {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 8px;
+}
+.featured-logo {
+  width: 56px; height: 56px; border-radius: 12px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; flex-shrink: 0;
+}
+.featured-logo img {
+  width: 100%; height: 100%; object-fit: contain; padding: 6px;
+  position: relative; z-index: 2;
+}
+.featured-logo-fallback {
+  font-size: 18px; font-weight: 700; color: var(--text-3);
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.featured-name {
+  font-size: 17px; font-weight: 700; color: var(--text);
+  display: block; line-height: 1.2;
+}
+.featured-tagline-mini {
+  font-size: 11.5px; color: var(--text-3);
+  display: block; margin-top: 3px; line-height: 1.4;
+}
+.featured-best-for {
+  position: absolute; top: 14px; right: 14px;
+  background: var(--pv-blue-bg); color: var(--pv-blue);
+  font-size: 10px; font-weight: 700; padding: 3px 9px;
+  border-radius: 999px; letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.featured-fees-list {
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.featured-fee-row {
+  display: flex; justify-content: space-between;
+  padding: 5px 0; font-size: 12.5px;
+}
+.featured-fee-row > span:first-child { color: var(--text-3); }
+.featured-fee-row > span:last-child {
+  color: var(--text); font-weight: 500;
+  font-family: var(--font-mono); font-size: 12px;
+}
+.featured-card-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 14px; padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.featured-rating { font-size: 12px; color: var(--text-3); }
+.featured-rating .stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; }
+.featured-cta {
+  font-size: 12px; font-weight: 600; color: var(--pv-blue);
+  text-decoration: none; padding: 7px 14px; border-radius: 8px;
+  background: var(--pv-blue-bg); transition: all 0.15s ease;
+}
+.featured-cta:hover { background: var(--pv-blue); color: white; }
+
+/* ─── COMPARISON TABLE ──────────────────────────────────────────── */
+.broker-compare {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 22px; margin-bottom: 24px;
+  box-shadow: var(--shadow-sm); overflow-x: auto;
+}
+.broker-compare h3 {
+  font-size: 16px; font-weight: 700; color: var(--text);
+  margin: 0 0 14px; display: flex; align-items: center; gap: 10px;
+}
+.compare-icon {
+  display: inline-flex; width: 28px; height: 28px;
+  background: var(--pv-blue-bg); color: var(--pv-blue);
+  border-radius: 8px; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700;
+}
+.compare-table {
+  width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 720px;
+}
+.compare-table thead th {
+  text-align: left; padding: 10px 12px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  color: var(--text-3); text-transform: uppercase;
+  border-bottom: 2px solid var(--border-2); white-space: nowrap;
+}
+.compare-table tbody td {
+  padding: 11px 12px; border-bottom: 1px dotted var(--border);
+  color: var(--text); font-family: var(--font-mono); font-size: 12px;
+}
+.compare-table tbody td:first-child {
+  font-family: var(--font-sans); font-weight: 600; color: var(--text-2);
+  white-space: nowrap;
+}
+.compare-table tbody tr:last-child td { border-bottom: 0; }
+.compare-table tbody tr:hover { background: var(--surface-2); }
+.compare-best {
+  color: var(--green); font-weight: 700;
+  background: var(--green-bg);
+  border-radius: 4px; padding: 2px 6px; display: inline-block;
+}
+.compare-notes {
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px dashed var(--border);
+  font-size: 11.5px; color: var(--text-4); line-height: 1.6;
+}
+
+/* ─── COST CALCULATOR ───────────────────────────────────────────── */
+.cost-calc {
+  background: linear-gradient(135deg, var(--pv-blue-bg) 0%, var(--surface) 60%);
+  border: 1px solid var(--border); border-radius: var(--r-md);
+  padding: 24px; margin-bottom: 24px;
+}
+.cost-calc h3 {
+  font-size: 16px; font-weight: 700; color: var(--text);
+  margin: 0 0 4px; display: flex; align-items: center; gap: 10px;
+}
+.cost-calc-sub {
+  font-size: 12.5px; color: var(--text-3); margin-bottom: 18px;
+}
+.calc-controls {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px; margin-bottom: 22px;
+}
+.calc-field label {
+  display: block; font-size: 11px; font-weight: 600;
+  color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+.calc-field input[type="range"] {
+  width: 100%; accent-color: var(--pv-blue); margin: 4px 0;
+}
+.calc-field-value {
+  font-size: 18px; font-weight: 700; color: var(--pv-blue);
+  font-family: var(--font-mono); margin-top: 4px;
+}
+.calc-field select {
+  width: 100%; padding: 9px 10px;
+  border: 1px solid var(--border); border-radius: 8px;
+  background: var(--surface); font-size: 13px; color: var(--text);
+  font-family: var(--font-sans);
+}
+.calc-results {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}
+.calc-result-row {
+  display: grid; grid-template-columns: 130px 100px 1fr 60px;
+  align-items: center; gap: 12px; padding: 9px 0;
+  border-bottom: 1px dotted var(--border);
+}
+.calc-result-row:last-child { border-bottom: 0; }
+.calc-result-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.calc-result-cost {
+  font-size: 13px; font-weight: 700; color: var(--text-2);
+  font-family: var(--font-mono); text-align: right;
+}
+.calc-result-bar {
+  height: 8px; background: var(--surface-3); border-radius: 999px;
+  overflow: hidden; position: relative;
+}
+.calc-result-bar > div {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--pv-blue) 0%, var(--pv-blue-l) 100%);
+  transition: width 0.35s ease;
+}
+.calc-result-row.calc-best .calc-result-bar > div {
+  background: linear-gradient(90deg, var(--green) 0%, #5dba7a 100%);
+}
+.calc-result-row.calc-best .calc-result-cost { color: var(--green); }
+.calc-best-tag {
+  font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 999px;
+  background: var(--green-bg); color: var(--green); letter-spacing: 0.04em;
+  text-transform: uppercase; text-align: center;
+}
+.calc-empty-tag { font-size: 10px; color: var(--text-4); text-align: center; }
+
+/* ─── RATINGS GRID ──────────────────────────────────────────────── */
+.ratings-grid-wrap {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 22px; box-shadow: var(--shadow-sm);
+  margin-bottom: 24px; overflow-x: auto;
+}
+.ratings-grid-wrap h3 {
+  font-size: 16px; font-weight: 700; color: var(--text);
+  margin: 0 0 14px; display: flex; align-items: center; gap: 10px;
+}
+.ratings-table {
+  width: 100%; border-collapse: collapse; min-width: 680px;
+}
+.ratings-table thead th {
+  text-align: center; padding: 10px 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  color: var(--text-3); text-transform: uppercase;
+  border-bottom: 2px solid var(--border-2);
+}
+.ratings-table thead th:first-child { text-align: left; }
+.ratings-table tbody td {
+  padding: 12px 6px; text-align: center; border-bottom: 1px dotted var(--border);
+}
+.ratings-table tbody td:first-child {
+  text-align: left; font-weight: 600; font-size: 13px; color: var(--text);
+}
+.ratings-table tbody tr:last-child td { border-bottom: 0; }
+.ratings-table tbody tr:hover { background: var(--surface-2); }
+.ratings-table .rating-stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; }
+.ratings-table .rating-overall {
+  font-weight: 700; color: var(--pv-blue); font-size: 14px; font-family: var(--font-mono);
+}
+
+/* Dark mode tweaks for new components */
+[data-theme="dark"] .featured-card { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .featured-card:hover { box-shadow: 0 12px 32px rgba(60, 130, 220, 0.15); }
+[data-theme="dark"] .cost-calc { background: linear-gradient(135deg, rgba(60, 130, 220, 0.08) 0%, var(--surface) 60%); }
+[data-theme="dark"] .featured-cta { background: rgba(60, 130, 220, 0.12); color: var(--pv-blue-l); }
+[data-theme="dark"] .featured-cta:hover { background: var(--pv-blue); color: white; }
+
+@media (max-width: 760px) {
+  .featured-grid { grid-template-columns: 1fr; }
+  .calc-result-row { grid-template-columns: 100px 80px 1fr; }
+  .calc-result-row > .calc-best-tag,
+  .calc-result-row > .calc-empty-tag { display: none; }
+}
+
+/* ─── EDUCATION PAGE (books library) ────────────────────────────── */
+.edu-controls {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 16px 18px; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.edu-search {
+  flex: 1 1 220px; min-width: 200px;
+  padding: 9px 12px; border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; background: var(--surface); color: var(--text);
+}
+.edu-chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.edu-chip-label {
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--text-3); margin-right: 6px;
+  align-self: center;
+}
+.edu-chip {
+  padding: 5px 11px; border-radius: 999px; font-size: 11.5px; font-weight: 600;
+  border: 1px solid var(--border); background: var(--surface-2);
+  color: var(--text-2); cursor: pointer; transition: all 0.15s ease;
+}
+.edu-chip:hover { background: var(--surface-3); }
+.edu-chip.on {
+  background: var(--pv-blue); color: white; border-color: var(--pv-blue);
+}
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+.edu-book {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: var(--shadow-sm); transition: all 0.18s ease;
+}
+.edu-book:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--pv-blue-l); }
+.edu-book-cover {
+  position: relative; aspect-ratio: 2 / 3;
+  background: linear-gradient(135deg, var(--pv-blue-bg) 0%, var(--surface-3) 100%);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.edu-book-cover img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.edu-book-cover .edu-cover-fallback {
+  position: absolute; inset: 0; padding: 18px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; color: var(--text-2); gap: 8px;
+}
+.edu-cover-fallback-title { font-size: 13px; font-weight: 700; line-height: 1.3; }
+.edu-cover-fallback-author { font-size: 11px; color: var(--text-3); font-style: italic; }
+.edu-book-body { padding: 14px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.edu-book-title {
+  font-size: 13.5px; font-weight: 700; color: var(--text); line-height: 1.3;
+}
+.edu-book-author { font-size: 12px; color: var(--text-3); font-style: italic; }
+.edu-book-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+.edu-tag {
+  font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+.edu-tag.level-beg  { background: var(--green-bg); color: var(--green); }
+.edu-tag.level-int  { background: #fef0e6; color: #c45a1f; }
+.edu-tag.level-adv  { background: var(--red-bg); color: var(--red); }
+.edu-tag.theme {
+  background: var(--surface-3); color: var(--text-3);
+}
+.edu-book-foot {
+  display: flex; gap: 6px; margin-top: auto;
+  padding-top: 10px; border-top: 1px solid var(--border);
+}
+.edu-buy {
+  flex: 1; padding: 6px 8px; border-radius: 6px;
+  font-size: 11px; font-weight: 600; color: var(--pv-blue);
+  background: var(--pv-blue-bg); text-decoration: none; text-align: center;
+  transition: all 0.15s ease;
+}
+.edu-buy:hover { background: var(--pv-blue); color: white; }
+[data-theme="dark"] .edu-buy { background: rgba(60,130,220,0.12); color: var(--pv-blue-l); }
+
+/* ─── PRICING PAGE ─────────────────────────────────────────────── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 18px; margin: 32px 0;
+}
+.pricing-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 26px 22px;
+  display: flex; flex-direction: column; gap: 14px;
+  position: relative; box-shadow: var(--shadow-sm);
+  transition: all 0.18s ease;
+}
+.pricing-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--pv-blue-l); }
+.pricing-card.featured {
+  border-color: var(--pv-blue); border-width: 2px;
+  box-shadow: 0 8px 28px rgba(44, 108, 173, 0.18);
+}
+.pricing-card.featured::before {
+  content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--pv-blue); color: white; font-size: 10px; font-weight: 700;
+  padding: 4px 14px; border-radius: 999px; letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.pricing-tier-name {
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--text-3);
+}
+.pricing-amount {
+  display: flex; align-items: baseline; gap: 4px;
+}
+.pricing-amount-num {
+  font-size: 38px; font-weight: 800; color: var(--text); line-height: 1;
+  letter-spacing: -0.02em;
+}
+.pricing-amount-ccy { font-size: 18px; font-weight: 600; color: var(--text-3); }
+.pricing-amount-period { font-size: 12px; color: var(--text-3); margin-left: 4px; }
+.pricing-tagline { font-size: 13px; color: var(--text-3); line-height: 1.5; }
+.pricing-features {
+  list-style: none; padding: 14px 0; margin: 0;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 9px;
+}
+.pricing-features li {
+  display: flex; gap: 9px; font-size: 13px; color: var(--text-2);
+  line-height: 1.45;
+}
+.pricing-features li::before {
+  content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0;
+  margin-top: 1px;
+}
+.pricing-features li.disabled { color: var(--text-4); }
+.pricing-features li.disabled::before { content: '×'; color: var(--text-4); }
+.pricing-cta {
+  display: block; padding: 12px 18px; border-radius: 10px;
+  font-size: 14px; font-weight: 600; text-align: center;
+  background: var(--surface-2); color: var(--text); text-decoration: none;
+  border: 1px solid var(--border); transition: all 0.15s ease;
+}
+.pricing-cta:hover { background: var(--surface-3); border-color: var(--pv-blue-l); }
+.pricing-card.featured .pricing-cta {
+  background: var(--pv-blue); color: white; border-color: var(--pv-blue);
+}
+.pricing-card.featured .pricing-cta:hover { background: var(--pv-blue-d); }
+.pricing-faq {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 22px; margin-top: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.pricing-faq h3 { font-size: 16px; font-weight: 700; margin: 0 0 14px; }
+.pricing-faq-item {
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+}
+.pricing-faq-item:last-child { border-bottom: 0; }
+.pricing-faq-q { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.pricing-faq-a { font-size: 13px; color: var(--text-3); line-height: 1.55; }
+
 /* ─── FOOTER ────────────────────────────────────────────────────── */
 footer.site-footer {
   background: var(--surface);
@@ -1170,6 +1589,94 @@ footer.site-footer a { color: var(--text-3); }
   color: var(--gold);
 }
 [data-theme="dark"] .theme-toggle:hover { background: var(--surface-2); }
+
+/* ─── SETTINGS PANEL (Revolut-style slide-in) ──────────────────── */
+.settings-trigger {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--surface-3); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-2);
+  transition: all 0.15s ease;
+}
+.settings-trigger:hover { background: var(--pv-blue-bg); color: var(--pv-blue); border-color: var(--pv-blue-l); }
+.settings-trigger svg { width: 18px; height: 18px; }
+[data-theme="dark"] .settings-trigger { background: var(--surface-3); }
+[data-theme="dark"] .settings-trigger:hover { background: var(--surface-2); }
+
+.settings-overlay {
+  position: fixed; inset: 0; background: rgba(15, 30, 55, 0.4);
+  z-index: 90; opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease; backdrop-filter: blur(2px);
+}
+.settings-overlay.open { opacity: 1; pointer-events: auto; }
+[data-theme="dark"] .settings-overlay { background: rgba(0,0,0,0.6); }
+
+.settings-panel {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: 380px; max-width: 90vw;
+  background: var(--surface); border-left: 1px solid var(--border);
+  box-shadow: -8px 0 28px rgba(15, 30, 55, 0.18);
+  z-index: 100; padding: 24px 22px;
+  transform: translateX(100%); transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex; flex-direction: column; gap: 22px;
+  overflow-y: auto;
+}
+.settings-panel.open { transform: translateX(0); }
+[data-theme="dark"] .settings-panel { box-shadow: -8px 0 28px rgba(0,0,0,0.5); }
+.settings-panel-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 14px; border-bottom: 1px solid var(--border);
+}
+.settings-panel-title { font-size: 18px; font-weight: 700; color: var(--text); margin: 0; }
+.settings-close {
+  width: 32px; height: 32px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--surface-2);
+  cursor: pointer; font-size: 18px; color: var(--text-3);
+  display: flex; align-items: center; justify-content: center;
+}
+.settings-close:hover { background: var(--red-bg); color: var(--red); border-color: var(--red); }
+
+.settings-section h4 {
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--text-3); margin: 0 0 10px;
+}
+.settings-options {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+}
+.settings-option {
+  border: 1px solid var(--border); background: var(--surface-2);
+  border-radius: 10px; padding: 12px 8px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 600; color: var(--text-2);
+  transition: all 0.15s ease;
+  font-family: var(--font-sans);
+}
+.settings-option:hover { border-color: var(--pv-blue-l); background: var(--surface); }
+.settings-option.on {
+  background: var(--pv-blue-bg); color: var(--pv-blue);
+  border-color: var(--pv-blue); font-weight: 700;
+}
+.settings-option .opt-flag { font-size: 22px; line-height: 1; margin-bottom: 2px; }
+.settings-option .opt-icon { font-size: 14px; line-height: 1; }
+.settings-option .opt-label { font-size: 11.5px; }
+[data-theme="dark"] .settings-option { background: var(--surface-3); }
+[data-theme="dark"] .settings-option.on { background: rgba(74, 139, 201, 0.15); color: var(--pv-blue-l); border-color: var(--pv-blue-l); }
+
+.settings-link {
+  display: block; padding: 12px 14px; background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: 10px;
+  text-decoration: none; color: var(--text); font-size: 13px;
+  transition: all 0.15s ease;
+}
+.settings-link:hover { background: var(--surface-3); border-color: var(--pv-blue-l); }
+.settings-link-row { display: flex; justify-content: space-between; align-items: center; }
+.settings-link-label { font-weight: 600; }
+.settings-link-sub { font-size: 11px; color: var(--text-3); margin-top: 2px; }
+.settings-link-arrow { color: var(--text-3); font-weight: 700; }
+
+@media (max-width: 480px) {
+  .settings-panel { width: 100%; max-width: 100%; }
+}
 
 [data-theme="dark"] .lazy-chip {
   background: var(--surface-3);
@@ -2014,6 +2521,77 @@ table.heatmap tr:last-child td { border-bottom: 0; }
   border-radius: 4px;
 }
 .frontier-asset-row .remove-btn:hover { color: var(--red); background: var(--red-bg); }
+.frontier-asset-row .ef-min,
+.frontier-asset-row .ef-max {
+  width: 56px !important; padding: 5px 6px !important; font-size: 11.5px !important;
+  font-family: var(--font-mono); text-align: center;
+}
+.frontier-asset-row .ef-sep { color: var(--text-4); font-size: 11px; padding: 0 2px; }
+.frontier-asset-row .ef-pct-suffix {
+  font-size: 10px; color: var(--text-4); margin-right: 4px;
+}
+
+.ef-config-options {
+  display: flex; gap: 16px; padding: 12px; margin-top: 12px;
+  background: var(--surface-2); border-radius: 10px;
+  align-items: center; flex-wrap: wrap;
+}
+.ef-config-options label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--text-3);
+  display: flex; align-items: center; gap: 6px;
+}
+.ef-config-options input[type="number"] {
+  width: 70px; padding: 6px 8px; font-size: 13px;
+  border: 1px solid var(--border); border-radius: 6px;
+  background: var(--surface); color: var(--text);
+  font-family: var(--font-mono);
+}
+
+/* Info icon · used across analytics pages for didactic tooltips */
+.info-icon {
+  display: inline-flex; width: 16px; height: 16px;
+  background: var(--surface-3); color: var(--text-3);
+  border-radius: 50%; font-size: 10px; font-weight: 700; font-family: var(--font-mono);
+  align-items: center; justify-content: center;
+  margin-left: 6px; cursor: help; vertical-align: middle;
+  border: 1px solid var(--border); position: relative;
+  flex-shrink: 0;
+}
+.info-icon:hover { background: var(--pv-blue-bg); color: var(--pv-blue); border-color: var(--pv-blue-l); }
+.info-icon[data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  background: var(--text); color: white; font-family: var(--font-sans); font-weight: 500;
+  font-size: 11.5px; line-height: 1.5; padding: 8px 10px; border-radius: 8px;
+  white-space: normal; width: max-content; max-width: 280px;
+  box-shadow: var(--shadow-lg); z-index: 50; pointer-events: none;
+}
+.info-icon[data-tip]:hover::before {
+  content: ''; position: absolute; bottom: 100%; left: 50%;
+  transform: translateX(-50%); border: 5px solid transparent;
+  border-top-color: var(--text); z-index: 50;
+}
+
+/* Key stats card */
+.ef-key-stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px; margin-top: 14px;
+}
+.ef-key-stat {
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px;
+}
+.ef-key-stat-label {
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--text-3);
+  display: flex; align-items: center;
+}
+.ef-key-stat-value {
+  font-size: 18px; font-weight: 700; color: var(--text);
+  font-family: var(--font-mono); margin-top: 4px;
+}
+.ef-key-stat-sub { font-size: 11px; color: var(--text-4); margin-top: 2px; }
 
 /* Tangency portfolio annotation */
 .tangency-pin {
@@ -2565,19 +3143,15 @@ table.heatmap tr:last-child td { border-bottom: 0; }
     </div>
     <div class="masthead-controls">
       <span id="today-date" style="color:var(--text-3);font-size:12px;"></span>
-      <div class="lang-switch" role="group" aria-label="Language">
-        <button data-lang="en" class="on" onclick="setLang('en')">EN</button>
-        <button data-lang="fr" onclick="setLang('fr')">FR</button>
-        <button data-lang="nl" onclick="setLang('nl')">NL</button>
-      </div>
-      <div class="ccy-switch">
-        <button data-ccy="USD" onclick="setCcy('USD')">USD</button>
-        <button data-ccy="EUR" class="on" onclick="setCcy('EUR')">EUR</button>
-        <button data-ccy="GBP" onclick="setCcy('GBP')">GBP</button>
-      </div>
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
         <svg id="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+      </button>
+      <button class="settings-trigger" onclick="openSettings()" aria-label="Settings" title="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
         </svg>
       </button>
     </div>
@@ -2590,8 +3164,73 @@ table.heatmap tr:last-child td { border-bottom: 0; }
     <button data-page="markets" onclick="goPage('markets')" data-i18n="nav.markets">Markets</button>
     <button data-page="platforms" onclick="goPage('platforms')" data-i18n="nav.platforms">Investment Platforms</button>
     <button data-page="lazy" onclick="goPage('lazy')" data-i18n="nav.lazy">Lazy Portfolios</button>
+    <button data-page="education" onclick="goPage('education')" data-i18n="nav.education">Education</button>
+    <button data-page="pricing" onclick="goPage('pricing')" data-i18n="nav.pricing">Pricing</button>
   </nav>
 </header>
+
+<!-- ════════ SETTINGS PANEL (slide-in) ════════ -->
+<div class="settings-overlay" id="settings-overlay" onclick="closeSettings()"></div>
+<aside class="settings-panel" id="settings-panel" role="dialog" aria-label="Settings">
+  <div class="settings-panel-head">
+    <h3 class="settings-panel-title" data-i18n="settings.title">Settings</h3>
+    <button class="settings-close" onclick="closeSettings()" aria-label="Close">×</button>
+  </div>
+  <div class="settings-section">
+    <h4 data-i18n="settings.lang">Language</h4>
+    <div class="settings-options" id="settings-lang">
+      <button class="settings-option" data-lang="en" onclick="setLang('en'); _syncSettings()">
+        <span class="opt-flag">🇬🇧</span><span class="opt-label">English</span>
+      </button>
+      <button class="settings-option" data-lang="fr" onclick="setLang('fr'); _syncSettings()">
+        <span class="opt-flag">🇫🇷</span><span class="opt-label">Français</span>
+      </button>
+      <button class="settings-option" data-lang="nl" onclick="setLang('nl'); _syncSettings()">
+        <span class="opt-flag">🇳🇱</span><span class="opt-label">Nederlands</span>
+      </button>
+    </div>
+  </div>
+  <div class="settings-section">
+    <h4 data-i18n="settings.ccy">Currency</h4>
+    <div class="settings-options" id="settings-ccy">
+      <button class="settings-option" data-ccy="USD" onclick="setCcy('USD'); _syncSettings()">
+        <span class="opt-icon">$</span><span class="opt-label">USD</span>
+      </button>
+      <button class="settings-option" data-ccy="EUR" onclick="setCcy('EUR'); _syncSettings()">
+        <span class="opt-icon">€</span><span class="opt-label">EUR</span>
+      </button>
+      <button class="settings-option" data-ccy="GBP" onclick="setCcy('GBP'); _syncSettings()">
+        <span class="opt-icon">£</span><span class="opt-label">GBP</span>
+      </button>
+    </div>
+  </div>
+  <div class="settings-section">
+    <h4 data-i18n="settings.theme">Theme</h4>
+    <div class="settings-options" id="settings-theme">
+      <button class="settings-option" data-theme-opt="light" onclick="setTheme('light'); _syncSettings()">
+        <span class="opt-icon">☀</span><span class="opt-label">Light</span>
+      </button>
+      <button class="settings-option" data-theme-opt="dark" onclick="setTheme('dark'); _syncSettings()">
+        <span class="opt-icon">☾</span><span class="opt-label">Dark</span>
+      </button>
+      <button class="settings-option" data-theme-opt="auto" onclick="setTheme('auto'); _syncSettings()">
+        <span class="opt-icon">⊙</span><span class="opt-label">Auto</span>
+      </button>
+    </div>
+  </div>
+  <div class="settings-section">
+    <h4 data-i18n="settings.advanced">Advanced</h4>
+    <a class="settings-link" onclick="closeSettings(); document.getElementById('tweaks-toggle')?.click()" href="#" onclick="return false;">
+      <div class="settings-link-row">
+        <div>
+          <div class="settings-link-label" data-i18n="settings.tweaks">Tweaks panel</div>
+          <div class="settings-link-sub" data-i18n="settings.tweaks.sub">Density, accent palette, animations…</div>
+        </div>
+        <span class="settings-link-arrow">→</span>
+      </div>
+    </a>
+  </div>
+</aside>
 
 <!-- ════════════════════════ CLOCK BAR ════════════════════════ -->
 <div class="clock-bar" id="clock-bar">
@@ -2750,25 +3389,39 @@ table.heatmap tr:last-child td { border-bottom: 0; }
         <div class="lazy-chips" id="bt-lazy-chips"></div>
       </div>
 
+      <!-- Portfolio names -->
+      <div class="alloc-section" style="padding-bottom:0;">
+        <div class="section-head">
+          <h3 data-i18n="bt.names.title">Portfolio Names <span class="info-icon" data-tip="Optional. Custom names appear in chart legends, comparison tables and PDF exports. Leave blank for default P1/P2/P3.">i</span></h3>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:8px;">
+          <div class="field" style="margin:0;">
+            <label data-i18n="bt.names.p1">Portfolio 1 name</label>
+            <input type="text" id="bt-name-1" maxlength="40" placeholder="e.g. Conservative DCA" oninput="onPortNameChange()">
+          </div>
+          <div class="field" style="margin:0;">
+            <label data-i18n="bt.names.p2">Portfolio 2 name</label>
+            <input type="text" id="bt-name-2" maxlength="40" placeholder="e.g. 60/40 Balanced" oninput="onPortNameChange()">
+          </div>
+          <div class="field" style="margin:0;">
+            <label data-i18n="bt.names.p3">Portfolio 3 name</label>
+            <input type="text" id="bt-name-3" maxlength="40" placeholder="e.g. Risk-On Aggressive" oninput="onPortNameChange()">
+          </div>
+        </div>
+      </div>
+
       <!-- Allocation table -->
       <div class="alloc-section">
         <div class="section-head">
-          <h3>Asset Allocation</h3>
+          <h3 data-i18n="bt.alloc.title">Asset Allocation</h3>
           <div class="alloc-actions">
-            <button class="alloc-mini-btn" onclick="btEqualWeight(0)">Equal · P1</button>
-            <button class="alloc-mini-btn" onclick="btNormalize(0)">Normalize · P1</button>
-            <button class="alloc-mini-btn" onclick="btClear(0)">Clear · P1</button>
+            <button class="alloc-mini-btn" id="bt-alloc-equal" onclick="btEqualWeight(0)" data-i18n="bt.alloc.equal">Equal · P1</button>
+            <button class="alloc-mini-btn" id="bt-alloc-norm" onclick="btNormalize(0)" data-i18n="bt.alloc.norm">Normalize · P1</button>
+            <button class="alloc-mini-btn" id="bt-alloc-clear" onclick="btClear(0)" data-i18n="bt.alloc.clear">Clear · P1</button>
           </div>
         </div>
         <table class="alloc-table" id="bt-alloc">
-          <thead id="bt-alloc-thead">
-            <tr>
-              <th style="width:40%">Asset Class</th>
-              <th style="width:18%">P1 (%)</th>
-              <th style="width:18%">P2 (%)</th>
-              <th style="width:40px"></th>
-            </tr>
-          </thead>
+          <thead id="bt-alloc-thead"></thead>
           <tbody id="bt-alloc-tbody"></tbody>
         </table>
         <div id="bt-alloc-pies"></div>
@@ -3167,6 +3820,74 @@ table.heatmap tr:last-child td { border-bottom: 0; }
     </div>
   </aside>
 
+  <!-- ════════ FEATURED PLATFORMS · Curated comparison ════════ -->
+  <section class="featured-section">
+    <div class="featured-section-head">
+      <div>
+        <h2 data-i18n="pl.featured.h">Featured · Curated for European Investors</h2>
+        <div class="featured-sub" data-i18n="pl.featured.sub">Six institutional-grade platforms with side-by-side fee analysis, scenario calculator and detailed ratings.</div>
+      </div>
+    </div>
+    <div class="featured-grid" id="featured-grid"></div>
+
+    <div class="broker-compare">
+      <h3><span class="compare-icon">≡</span> <span data-i18n="pl.compare.h">Fee Comparison · Side by Side</span></h3>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th data-i18n="pl.compare.row">Item</th>
+            <th>Interactive Brokers</th><th>DEGIRO</th><th>Saxo</th><th>Bolero</th><th>MEXEM</th><th>Lightyear</th>
+          </tr>
+        </thead>
+        <tbody id="compare-tbody"></tbody>
+      </table>
+      <div class="compare-notes" id="compare-notes"></div>
+    </div>
+
+    <div class="cost-calc">
+      <h3><span class="compare-icon" style="background:var(--green-bg);color:var(--green);">€</span> <span data-i18n="pl.calc.h">Total Cost Calculator</span></h3>
+      <div class="cost-calc-sub" data-i18n="pl.calc.sub">Default DCA pattern — 50% European ETF + 50% US ETF, two trades per month. Estimates only; tax & exchange fees excluded.</div>
+      <div class="calc-controls">
+        <div class="calc-field">
+          <label data-i18n="pl.calc.month">Monthly investment</label>
+          <input type="range" id="calc-monthly" min="100" max="5000" step="50" value="500">
+          <div class="calc-field-value" id="calc-monthly-v">€500</div>
+        </div>
+        <div class="calc-field">
+          <label data-i18n="pl.calc.years">Holding period</label>
+          <input type="range" id="calc-years" min="1" max="30" step="1" value="10">
+          <div class="calc-field-value" id="calc-years-v">10 years</div>
+        </div>
+        <div class="calc-field">
+          <label data-i18n="pl.calc.profile">Investor profile</label>
+          <select id="calc-profile">
+            <option value="dca" data-i18n="pl.calc.dca">ETF DCA (passive)</option>
+            <option value="active" data-i18n="pl.calc.active">Active stock picking</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-results" id="calc-results"></div>
+    </div>
+
+    <div class="ratings-grid-wrap">
+      <h3><span class="compare-icon" style="background:#fff5e0;color:var(--gold);">★</span> <span data-i18n="pl.ratings.h">Ratings · Six Criteria</span></h3>
+      <table class="ratings-table">
+        <thead>
+          <tr>
+            <th data-i18n="pl.ratings.broker">Broker</th>
+            <th data-i18n="pl.ratings.fees">Fees</th>
+            <th data-i18n="pl.ratings.markets">Markets</th>
+            <th data-i18n="pl.ratings.tools">Tools</th>
+            <th data-i18n="pl.ratings.betax">BE Tax</th>
+            <th data-i18n="pl.ratings.support">Support</th>
+            <th data-i18n="pl.ratings.overall">Overall</th>
+          </tr>
+        </thead>
+        <tbody id="ratings-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
   <div class="plat-controls">
     <input type="text" id="plat-search" placeholder="Search by name, country or feature…" oninput="renderPlatforms()">
     <div class="plat-chip-row" id="plat-chips">
@@ -3270,9 +3991,16 @@ table.heatmap tr:last-child td { border-bottom: 0; }
     <div class="frontier-grid">
       <!-- Configuration card -->
       <div class="frontier-config">
-        <div class="card-title" data-i18n="ef.assets">Efficient Frontier Assets</div>
-        <div class="card-sub" style="margin-bottom:14px;">Pick the asset classes to consider · weights are optimized automatically</div>
+        <div class="card-title" data-i18n="ef.assets">Efficient Frontier Assets <span class="info-icon" data-tip="Asset classes whose covariance is used to build the frontier. Add 2 to 10 assets; allocations are optimised automatically across the random sample.">i</span></div>
+        <div class="card-sub" style="margin-bottom:14px;" data-i18n="ef.assets.sub">Pick the asset classes to consider · set min/max constraints per asset (default 0–100%)</div>
         <div id="ef-assets-list"></div>
+        <div class="ef-config-options">
+          <label data-i18n="ef.rfRate">Risk-Free Rate <span class="info-icon" data-tip="Used to compute the Sharpe Ratio and the Capital Allocation Line. Defaults to 2.0% (typical EUR short-term sovereign yield).">i</span></label>
+          <input type="number" id="ef-rfrate" min="-2" max="10" step="0.1" value="2.0">
+          <span style="font-size:12px;color:var(--text-3);">%</span>
+          <label style="margin-left:auto;" data-i18n="ef.simN">Simulations <span class="info-icon" data-tip="Number of random portfolios sampled. More simulations = smoother frontier but slower computation.">i</span></label>
+          <input type="number" id="ef-simn" min="500" max="20000" step="500" value="2000">
+        </div>
         <div style="display:flex;gap:8px;margin-top:14px;">
           <button class="btn" type="button" onclick="addEFAsset()" data-i18n="ef.add">+ Add asset</button>
           <button class="btn run" type="button" onclick="runFrontier()" data-i18n="ef.runBtn" style="margin-left:auto;">Compute Frontier</button>
@@ -3281,11 +4009,12 @@ table.heatmap tr:last-child td { border-bottom: 0; }
 
       <!-- Provided portfolio summary -->
       <div class="card">
-        <div class="card-title" data-i18n="ef.compare">Provided vs Optimal Portfolio</div>
-        <div class="card-sub">Equal-weight benchmark vs Max-Sharpe optimal</div>
+        <div class="card-title" data-i18n="ef.compare">Provided vs Optimal Portfolio <span class="info-icon" data-tip="Compares your equal-weight benchmark against the Tangency Portfolio (Max Sharpe Ratio). Δ shows the improvement on each metric.">i</span></div>
+        <div class="card-sub" data-i18n="ef.compare.sub">Equal-weight benchmark vs Max-Sharpe optimal · with downside metrics</div>
         <div id="ef-compare" style="margin-top:14px;">
-          <p style="color:var(--text-4);font-size:13px;">Compute the frontier to see comparison.</p>
+          <p style="color:var(--text-4);font-size:13px;" data-i18n="ef.compare.empty">Compute the frontier to see comparison.</p>
         </div>
+        <div id="ef-key-stats" class="ef-key-stats" style="display:none;"></div>
       </div>
     </div>
 
@@ -3299,6 +4028,125 @@ table.heatmap tr:last-child td { border-bottom: 0; }
       <div class="card-title">Asset Correlations</div>
       <div class="card-sub">Pairwise correlations of your selected assets</div>
       <div id="ef-corr" style="margin-top:14px;overflow-x:auto;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ EDUCATION ════════════════════════ -->
+<section class="page" id="page-education">
+  <div class="page-header">
+    <h1 data-i18n="ed.h1">Education · Investing Library</h1>
+    <p class="desc" data-i18n="ed.desc">A curated reading list of investing classics, ranked by theme and level. Build a coherent knowledge base — from index basics to advanced value investing.</p>
+  </div>
+  <aside class="edu-card">
+    <span class="edu-card-icon">📖</span>
+    <div class="edu-card-body">
+      <h4 data-i18n="ed.intro.title">Why books still beat the noise</h4>
+      <p data-i18n="ed.intro.body">Markets evolve, but the principles in these books — discipline, valuation, risk management — have stood for decades. Pick one for your level and read it cover to cover before chasing the next idea on social media.</p>
+    </div>
+  </aside>
+  <div class="edu-controls">
+    <input type="text" id="edu-search" class="edu-search" placeholder="Search by title or author…" oninput="renderBooks()">
+    <div class="edu-chip-row" id="edu-level-chips">
+      <span class="edu-chip-label" data-i18n="ed.level">Level</span>
+      <button class="edu-chip on" data-level="all" onclick="setEduLevel('all')" data-i18n="ed.level.all">All</button>
+      <button class="edu-chip" data-level="beginner" onclick="setEduLevel('beginner')" data-i18n="ed.level.beg">Beginner</button>
+      <button class="edu-chip" data-level="intermediate" onclick="setEduLevel('intermediate')" data-i18n="ed.level.int">Intermediate</button>
+      <button class="edu-chip" data-level="advanced" onclick="setEduLevel('advanced')" data-i18n="ed.level.adv">Advanced</button>
+    </div>
+    <div class="edu-chip-row" id="edu-theme-chips">
+      <span class="edu-chip-label" data-i18n="ed.theme">Theme</span>
+      <button class="edu-chip on" data-theme="all" onclick="setEduTheme('all')" data-i18n="ed.theme.all">All</button>
+      <button class="edu-chip" data-theme="value" onclick="setEduTheme('value')" data-i18n="ed.theme.value">Value</button>
+      <button class="edu-chip" data-theme="indexing" onclick="setEduTheme('indexing')" data-i18n="ed.theme.indexing">Indexing</button>
+      <button class="edu-chip" data-theme="macro" onclick="setEduTheme('macro')" data-i18n="ed.theme.macro">Macro</button>
+      <button class="edu-chip" data-theme="behavioral" onclick="setEduTheme('behavioral')" data-i18n="ed.theme.behavioral">Behavioral</button>
+      <button class="edu-chip" data-theme="risk" onclick="setEduTheme('risk')" data-i18n="ed.theme.risk">Risk</button>
+      <button class="edu-chip" data-theme="trading" onclick="setEduTheme('trading')" data-i18n="ed.theme.trading">Trading</button>
+    </div>
+  </div>
+  <div class="edu-grid" id="edu-grid"></div>
+</section>
+
+<!-- ════════════════════════ PRICING ════════════════════════ -->
+<section class="page" id="page-pricing">
+  <div class="page-header">
+    <h1 data-i18n="pr.h1">Pricing</h1>
+    <p class="desc" data-i18n="pr.desc">Transparent monthly plans. Cancel anytime. All tiers include the full backtest engine and Lazy Portfolios catalogue.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-tier-name" data-i18n="pr.starter.name">Starter</div>
+      <div class="pricing-amount">
+        <span class="pricing-amount-num">15</span>
+        <span class="pricing-amount-ccy">€</span>
+        <span class="pricing-amount-period" data-i18n="pr.month">/ month</span>
+      </div>
+      <p class="pricing-tagline" data-i18n="pr.starter.sub">For individuals exploring portfolio analytics.</p>
+      <ul class="pricing-features">
+        <li data-i18n="pr.feat.backtest">Full backtest engine, 2 portfolios</li>
+        <li data-i18n="pr.feat.mc">Monte Carlo (1,000 simulations)</li>
+        <li data-i18n="pr.feat.lazy">Lazy Portfolios catalogue</li>
+        <li data-i18n="pr.feat.markets">Markets · heatmaps</li>
+        <li class="disabled" data-i18n="pr.feat.pdf">PDF export</li>
+        <li class="disabled" data-i18n="pr.feat.priority">Priority support</li>
+      </ul>
+      <a class="pricing-cta" href="#" onclick="alert('Stripe checkout — coming soon'); return false;" data-i18n="pr.cta.starter">Get Starter</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-tier-name" data-i18n="pr.pro.name">Pro</div>
+      <div class="pricing-amount">
+        <span class="pricing-amount-num">29</span>
+        <span class="pricing-amount-ccy">€</span>
+        <span class="pricing-amount-period" data-i18n="pr.month">/ month</span>
+      </div>
+      <p class="pricing-tagline" data-i18n="pr.pro.sub">For advanced individual investors and analysts.</p>
+      <ul class="pricing-features">
+        <li data-i18n="pr.feat.backtest5">Full backtest engine, up to 5 portfolios</li>
+        <li data-i18n="pr.feat.mc10k">Monte Carlo (10,000 simulations)</li>
+        <li data-i18n="pr.feat.efadv">Efficient Frontier with constraints</li>
+        <li data-i18n="pr.feat.pdf2">PDF export · institutional template</li>
+        <li data-i18n="pr.feat.email">Email support · 24h reply</li>
+        <li class="disabled" data-i18n="pr.feat.api">API access</li>
+      </ul>
+      <a class="pricing-cta" href="#" onclick="alert('Stripe checkout — coming soon'); return false;" data-i18n="pr.cta.pro">Get Pro</a>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-tier-name" data-i18n="pr.inst.name">Institutional</div>
+      <div class="pricing-amount">
+        <span class="pricing-amount-num">149</span>
+        <span class="pricing-amount-ccy">€</span>
+        <span class="pricing-amount-period" data-i18n="pr.month">/ month</span>
+      </div>
+      <p class="pricing-tagline" data-i18n="pr.inst.sub">For wealth managers, family offices and small funds.</p>
+      <ul class="pricing-features">
+        <li data-i18n="pr.feat.allpro">Everything in Pro</li>
+        <li data-i18n="pr.feat.unlimited">Unlimited portfolios &amp; clients</li>
+        <li data-i18n="pr.feat.api2">REST API access</li>
+        <li data-i18n="pr.feat.whitelabel">White-label PDF reports</li>
+        <li data-i18n="pr.feat.priority2">Priority support · 4h SLA</li>
+        <li data-i18n="pr.feat.custom">Custom datasets &amp; benchmarks</li>
+      </ul>
+      <a class="pricing-cta" href="mailto:contact@quantrih.com" data-i18n="pr.cta.inst">Contact Sales</a>
+    </div>
+  </div>
+  <div class="pricing-faq">
+    <h3 data-i18n="pr.faq.h">Frequently Asked Questions</h3>
+    <div class="pricing-faq-item">
+      <div class="pricing-faq-q" data-i18n="pr.faq.q1">Can I cancel anytime?</div>
+      <div class="pricing-faq-a" data-i18n="pr.faq.a1">Yes. Subscriptions are monthly, cancel from your account at any time. No hidden charges.</div>
+    </div>
+    <div class="pricing-faq-item">
+      <div class="pricing-faq-q" data-i18n="pr.faq.q2">Is my financial data secure?</div>
+      <div class="pricing-faq-a" data-i18n="pr.faq.a2">All inputs stay in your browser. Your portfolios are stored locally; nothing is uploaded to a server unless you explicitly export a PDF.</div>
+    </div>
+    <div class="pricing-faq-item">
+      <div class="pricing-faq-q" data-i18n="pr.faq.q3">Is Quantrih licensed for financial advice?</div>
+      <div class="pricing-faq-a" data-i18n="pr.faq.a3">Quantrih is an analytical and educational tool — it is not a regulated investment advisor. For investment decisions, consult a licensed advisor.</div>
+    </div>
+    <div class="pricing-faq-item">
+      <div class="pricing-faq-q" data-i18n="pr.faq.q4">Do you offer institutional discounts?</div>
+      <div class="pricing-faq-a" data-i18n="pr.faq.a4">Yes — for teams of 5+ users we offer volume pricing. Contact our sales team via the Institutional plan link.</div>
     </div>
   </div>
 </section>
@@ -3343,19 +4191,104 @@ const I18N = {
     "nav.markets": "Markets",
     "nav.platforms": "Investment Platforms",
     "nav.lazy": "Lazy Portfolios",
+    "nav.education": "Education",
+    "nav.pricing": "Pricing",
+    "bt.alloc.title": "Asset Allocation",
+    "bt.alloc.equal": "Equal · P1",
+    "bt.alloc.norm": "Normalize · P1",
+    "bt.alloc.clear": "Clear · P1",
+    "bt.alloc.equalRoot": "Equal",
+    "bt.alloc.normRoot": "Normalize",
+    "bt.alloc.clearRoot": "Clear",
+    "bt.alloc.assetClass": "Asset Class",
+    "bt.alloc.total": "Total",
+    "bt.names.title": "Portfolio Names",
+    "bt.names.p1": "Portfolio 1 name",
+    "bt.names.p2": "Portfolio 2 name",
+    "bt.names.p3": "Portfolio 3 name",
+    "ed.h1": "Education · Investing Library",
+    "ed.desc": "A curated reading list of investing classics, ranked by theme and level. Build a coherent knowledge base — from index basics to advanced value investing.",
+    "ed.intro.title": "Why books still beat the noise",
+    "ed.intro.body": "Markets evolve, but the principles in these books — discipline, valuation, risk management — have stood for decades. Pick one for your level and read it cover to cover before chasing the next idea on social media.",
+    "ed.level": "Level",
+    "ed.level.all": "All",
+    "ed.level.beg": "Beginner",
+    "ed.level.int": "Intermediate",
+    "ed.level.adv": "Advanced",
+    "ed.theme": "Theme",
+    "ed.theme.all": "All",
+    "ed.theme.value": "Value",
+    "ed.theme.indexing": "Indexing",
+    "ed.theme.macro": "Macro",
+    "ed.theme.behavioral": "Behavioral",
+    "ed.theme.risk": "Risk",
+    "ed.theme.trading": "Trading",
+    "pr.h1": "Pricing",
+    "pr.desc": "Transparent monthly plans. Cancel anytime. All tiers include the full backtest engine and Lazy Portfolios catalogue.",
+    "pr.month": "/ month",
+    "pr.starter.name": "Starter",
+    "pr.starter.sub": "For individuals exploring portfolio analytics.",
+    "pr.pro.name": "Pro",
+    "pr.pro.sub": "For advanced individual investors and analysts.",
+    "pr.inst.name": "Institutional",
+    "pr.inst.sub": "For wealth managers, family offices and small funds.",
+    "pr.feat.backtest": "Full backtest engine, 2 portfolios",
+    "pr.feat.mc": "Monte Carlo (1,000 simulations)",
+    "pr.feat.lazy": "Lazy Portfolios catalogue",
+    "pr.feat.markets": "Markets · heatmaps",
+    "pr.feat.pdf": "PDF export",
+    "pr.feat.priority": "Priority support",
+    "pr.feat.backtest5": "Full backtest engine, up to 5 portfolios",
+    "pr.feat.mc10k": "Monte Carlo (10,000 simulations)",
+    "pr.feat.efadv": "Efficient Frontier with constraints",
+    "pr.feat.pdf2": "PDF export · institutional template",
+    "pr.feat.email": "Email support · 24h reply",
+    "pr.feat.api": "API access",
+    "pr.feat.allpro": "Everything in Pro",
+    "pr.feat.unlimited": "Unlimited portfolios & clients",
+    "pr.feat.api2": "REST API access",
+    "pr.feat.whitelabel": "White-label PDF reports",
+    "pr.feat.priority2": "Priority support · 4h SLA",
+    "pr.feat.custom": "Custom datasets & benchmarks",
+    "pr.cta.starter": "Get Starter",
+    "pr.cta.pro": "Get Pro",
+    "pr.cta.inst": "Contact Sales",
+    "pr.faq.h": "Frequently Asked Questions",
+    "pr.faq.q1": "Can I cancel anytime?",
+    "pr.faq.a1": "Yes. Subscriptions are monthly, cancel from your account at any time. No hidden charges.",
+    "pr.faq.q2": "Is my financial data secure?",
+    "pr.faq.a2": "All inputs stay in your browser. Your portfolios are stored locally; nothing is uploaded to a server unless you explicitly export a PDF.",
+    "pr.faq.q3": "Is Quantrih licensed for financial advice?",
+    "pr.faq.a3": "Quantrih is an analytical and educational tool — it is not a regulated investment advisor. For investment decisions, consult a licensed advisor.",
+    "pr.faq.q4": "Do you offer institutional discounts?",
+    "pr.faq.a4": "Yes — for teams of 5+ users we offer volume pricing. Contact our sales team via the Institutional plan link.",
+    "settings.title": "Settings",
+    "settings.lang": "Language",
+    "settings.ccy": "Currency",
+    "settings.theme": "Theme",
+    "settings.advanced": "Advanced",
+    "settings.tweaks": "Tweaks panel",
+    "settings.tweaks.sub": "Density, accent palette, animations…",
+    "ef.assets.sub": "Pick the asset classes to consider · set min/max constraints per asset (default 0–100%)",
+    "ef.rfRate": "Risk-Free Rate",
+    "ef.simN": "Simulations",
+    "ef.compare.sub": "Equal-weight benchmark vs Max-Sharpe optimal · with downside metrics",
+    "ef.compare.empty": "Compute the frontier to see comparison.",
+    "ef.alert.minAssets": "Select at least 2 assets.",
+    "ef.alert.noData": "Not enough data for the selected assets.",
 
     /* Home page */
     "home.eyebrow": "Free · Open · For European Investors",
     "home.headline": "Analyze your portfolios<br><span class=\"hl\">in depth</span>",
-    "home.subtitle": "30 years of historical data, Monte Carlo simulations, risk metrics, lazy portfolios and broker comparisons — all free, no account required.",
+    "home.subtitle": "Long-horizon historical datasets, Monte Carlo simulations, risk metrics, lazy portfolios and broker comparisons — all in one place.",
     "home.cta.backtest": "Start Backtesting",
     "home.cta.lazy": "Browse Lazy Portfolios",
     "home.contact": "Questions? <a href=\"mailto:contact@quantrih.com\">contact@quantrih.com</a>",
     "home.pill.free": "100% free",
     "home.pill.noAccount": "No account needed",
-    "home.pill.data": "30 years of data",
+    "home.pill.data": "Long-horizon datasets",
     "home.pill.edu": "Educational use",
-    "home.fc.backtest": "Compare portfolios over 30 years of historical data. Drawdowns, rolling returns, Sharpe ratio and more.",
+    "home.fc.backtest": "Compare portfolios over long-horizon historical data. Drawdowns, rolling returns, Sharpe ratio and more.",
     "home.fc.montecarlo": "10,000 simulated paths with cashflows and inflation. Visualize retirement scenarios and success probabilities.",
     "home.fc.frontier": "Find the optimal mix for maximum risk-adjusted return. Built on Markowitz portfolio theory.",
     "home.fc.markets": "Performance heatmaps for global indices, sectors, and curated portfolio models including the Ivy Portfolio.",
@@ -3363,7 +4296,7 @@ const I18N = {
     "home.fc.platforms": "Compare brokers for European investors: fees, features, regulations, and minimum deposits.",
 
     "hero.title": "Quantrih backtest portfolio",
-    "hero.sub": "Free, open analytics for European retail investors. Test 30 years of data, compare brokers, build lazy portfolios — visually.",
+    "hero.sub": "Open analytics for European retail investors. Test long-horizon datasets, compare brokers, build lazy portfolios — visually.",
     "hero.edu": "For educational purposes only · Not financial advice",
 
     /* Backtest page */
@@ -3462,6 +4395,25 @@ const I18N = {
     "pl.desc": "Compare brokers, fees, and features for European investors.",
     "pl.edu.title": "Why broker choice matters",
     "pl.edu.body": "Fees compound. A 1% recurring fee can cost you 25% of your returns over 30 years. Pick a regulated broker (FCA, BaFin, FSMA, AMF…) with low fees, ETF availability, and the tax wrappers your country offers (PEA, ISA, Pension III…).",
+    "pl.featured.h": "Featured · Curated for European Investors",
+    "pl.featured.sub": "Six institutional-grade platforms with side-by-side fee analysis, scenario calculator and detailed ratings.",
+    "pl.compare.h": "Fee Comparison · Side by Side",
+    "pl.compare.row": "Item",
+    "pl.calc.h": "Total Cost Calculator",
+    "pl.calc.sub": "Default DCA pattern — 50% European ETF + 50% US ETF, two trades per month. Estimates only; tax & exchange fees excluded.",
+    "pl.calc.month": "Monthly investment",
+    "pl.calc.years": "Holding period",
+    "pl.calc.profile": "Investor profile",
+    "pl.calc.dca": "ETF DCA (passive)",
+    "pl.calc.active": "Active stock picking",
+    "pl.ratings.h": "Ratings · Six Criteria",
+    "pl.ratings.broker": "Broker",
+    "pl.ratings.fees": "Fees",
+    "pl.ratings.markets": "Markets",
+    "pl.ratings.tools": "Tools",
+    "pl.ratings.betax": "BE Tax",
+    "pl.ratings.support": "Support",
+    "pl.ratings.overall": "Overall",
 
     /* Lazy */
     "lz.h1": "Lazy Portfolios · Top Picks",
@@ -3480,18 +4432,103 @@ const I18N = {
     "nav.home": "Accueil",
     "nav.platforms": "Courtiers",
     "nav.lazy": "Portefeuilles Paresseux",
+    "nav.education": "Éducation",
+    "nav.pricing": "Tarifs",
+    "bt.alloc.title": "Allocation d'actifs",
+    "bt.alloc.equal": "Égaler · P1",
+    "bt.alloc.norm": "Normaliser · P1",
+    "bt.alloc.clear": "Effacer · P1",
+    "bt.alloc.equalRoot": "Égaler",
+    "bt.alloc.normRoot": "Normaliser",
+    "bt.alloc.clearRoot": "Effacer",
+    "bt.alloc.assetClass": "Classe d'actifs",
+    "bt.alloc.total": "Total",
+    "bt.names.title": "Noms des portefeuilles",
+    "bt.names.p1": "Nom du portefeuille 1",
+    "bt.names.p2": "Nom du portefeuille 2",
+    "bt.names.p3": "Nom du portefeuille 3",
+    "ed.h1": "Éducation · Bibliothèque",
+    "ed.desc": "Une sélection de classiques de l'investissement, classés par thème et niveau. Bâtissez des fondations cohérentes — des bases de l'indexation au value investing avancé.",
+    "ed.intro.title": "Pourquoi les livres surpassent encore le bruit",
+    "ed.intro.body": "Les marchés évoluent, mais les principes de ces livres — discipline, valorisation, gestion du risque — tiennent depuis des décennies. Choisissez-en un à votre niveau et lisez-le en entier avant de courir après la prochaine idée vue en ligne.",
+    "ed.level": "Niveau",
+    "ed.level.all": "Tous",
+    "ed.level.beg": "Débutant",
+    "ed.level.int": "Intermédiaire",
+    "ed.level.adv": "Avancé",
+    "ed.theme": "Thème",
+    "ed.theme.all": "Tous",
+    "ed.theme.value": "Value",
+    "ed.theme.indexing": "Indexation",
+    "ed.theme.macro": "Macro",
+    "ed.theme.behavioral": "Comportement",
+    "ed.theme.risk": "Risque",
+    "ed.theme.trading": "Trading",
+    "pr.h1": "Tarifs",
+    "pr.desc": "Abonnements mensuels transparents. Annulable à tout moment. Tous les niveaux incluent le moteur de backtest et le catalogue Lazy Portfolios.",
+    "pr.month": "/ mois",
+    "pr.starter.name": "Starter",
+    "pr.starter.sub": "Pour les particuliers qui découvrent l'analyse de portefeuille.",
+    "pr.pro.name": "Pro",
+    "pr.pro.sub": "Pour les investisseurs particuliers avancés et analystes.",
+    "pr.inst.name": "Institutionnel",
+    "pr.inst.sub": "Pour gestionnaires de patrimoine, family offices et petits fonds.",
+    "pr.feat.backtest": "Moteur de backtest complet, 2 portefeuilles",
+    "pr.feat.mc": "Monte Carlo (1 000 simulations)",
+    "pr.feat.lazy": "Catalogue Lazy Portfolios",
+    "pr.feat.markets": "Marchés · heatmaps",
+    "pr.feat.pdf": "Export PDF",
+    "pr.feat.priority": "Support prioritaire",
+    "pr.feat.backtest5": "Moteur de backtest complet, jusqu'à 5 portefeuilles",
+    "pr.feat.mc10k": "Monte Carlo (10 000 simulations)",
+    "pr.feat.efadv": "Frontière efficiente avec contraintes",
+    "pr.feat.pdf2": "Export PDF · template institutionnel",
+    "pr.feat.email": "Support email · réponse 24 h",
+    "pr.feat.api": "Accès API",
+    "pr.feat.allpro": "Tout l'offre Pro inclus",
+    "pr.feat.unlimited": "Portefeuilles &amp; clients illimités",
+    "pr.feat.api2": "Accès API REST",
+    "pr.feat.whitelabel": "Rapports PDF en marque blanche",
+    "pr.feat.priority2": "Support prioritaire · SLA 4 h",
+    "pr.feat.custom": "Datasets &amp; benchmarks sur mesure",
+    "pr.cta.starter": "Choisir Starter",
+    "pr.cta.pro": "Choisir Pro",
+    "pr.cta.inst": "Contacter les ventes",
+    "pr.faq.h": "Questions fréquentes",
+    "pr.faq.q1": "Puis-je annuler à tout moment ?",
+    "pr.faq.a1": "Oui. Les abonnements sont mensuels, annulables depuis votre compte à tout moment. Aucun frais caché.",
+    "pr.faq.q2": "Mes données financières sont-elles sécurisées ?",
+    "pr.faq.a2": "Tous vos inputs restent dans votre navigateur. Les portefeuilles sont stockés localement ; rien n'est envoyé à un serveur sauf export PDF explicite.",
+    "pr.faq.q3": "Quantrih est-il agréé pour le conseil financier ?",
+    "pr.faq.a3": "Quantrih est un outil analytique et éducatif — pas un conseiller en investissement régulé. Pour des décisions d'investissement, consultez un conseiller agréé.",
+    "pr.faq.q4": "Proposez-vous des remises institutionnelles ?",
+    "pr.faq.a4": "Oui — pour les équipes de 5 utilisateurs et plus, des tarifs volume existent. Contactez l'équipe commerciale via le plan Institutionnel.",
+    "settings.title": "Paramètres",
+    "settings.lang": "Langue",
+    "settings.ccy": "Devise",
+    "settings.theme": "Thème",
+    "settings.advanced": "Avancé",
+    "settings.tweaks": "Panneau Tweaks",
+    "settings.tweaks.sub": "Densité, accent, animations…",
+    "ef.assets.sub": "Choisissez les classes d'actifs · contraintes min/max par actif (défaut 0–100 %)",
+    "ef.rfRate": "Taux sans risque",
+    "ef.simN": "Simulations",
+    "ef.compare.sub": "Benchmark équipondéré vs Max-Sharpe · avec métriques downside",
+    "ef.compare.empty": "Calculez la frontière pour voir la comparaison.",
+    "ef.alert.minAssets": "Sélectionnez au moins 2 actifs.",
+    "ef.alert.noData": "Données insuffisantes pour les actifs sélectionnés.",
 
     "home.eyebrow": "Gratuit · Ouvert · Pour les Investisseurs Européens",
     "home.headline": "Analysez vos portefeuilles<br><span class=\"hl\">en profondeur</span>",
-    "home.subtitle": "30 ans de données historiques, simulations Monte Carlo, métriques de risque, portefeuilles paresseux et comparaison de courtiers — gratuit, sans inscription.",
+    "home.subtitle": "Datasets historiques long terme, simulations Monte Carlo, métriques de risque, portefeuilles paresseux et comparaison de courtiers — tout au même endroit.",
     "home.cta.backtest": "Lancer un backtest",
     "home.cta.lazy": "Parcourir les portefeuilles",
     "home.contact": "Questions ? <a href=\"mailto:contact@quantrih.com\">contact@quantrih.com</a>",
     "home.pill.free": "100% gratuit",
     "home.pill.noAccount": "Sans inscription",
-    "home.pill.data": "30 ans de données",
+    "home.pill.data": "Données long terme",
     "home.pill.edu": "Usage pédagogique",
-    "home.fc.backtest": "Comparez des portefeuilles sur 30 ans de données. Drawdowns, rendements glissants, Sharpe et plus.",
+    "home.fc.backtest": "Comparez des portefeuilles sur des données historiques long terme. Drawdowns, rendements glissants, Sharpe et plus.",
     "home.fc.montecarlo": "10 000 chemins simulés avec cashflows et inflation. Visualisez les scénarios retraite et probabilités de succès.",
     "home.fc.frontier": "Trouvez le mix optimal pour le meilleur rendement ajusté au risque. Basé sur la théorie de Markowitz.",
     "home.fc.markets": "Heatmaps de performance pour les indices mondiaux, secteurs et modèles de portefeuille dont l'Ivy Portfolio.",
@@ -3499,7 +4536,7 @@ const I18N = {
     "home.fc.platforms": "Comparez les courtiers pour investisseurs européens : frais, fonctionnalités, régulation et dépôt minimum.",
 
     "hero.title": "Quantrih backtest portfolio",
-    "hero.sub": "Analyses gratuites et ouvertes pour les investisseurs particuliers européens. 30 ans de données, comparaison de courtiers, portefeuilles paresseux — visuellement.",
+    "hero.sub": "Analyses ouvertes pour investisseurs particuliers européens. Datasets long terme, comparaison de courtiers, portefeuilles paresseux — visuellement.",
     "hero.edu": "À but pédagogique uniquement · Pas un conseil financier",
 
     "bt.h1": "Backtest d'un portefeuille",
@@ -3598,6 +4635,25 @@ const I18N = {
     "pl.desc": "Comparez frais, fonctionnalités et services des courtiers européens.",
     "pl.edu.title": "Pourquoi le choix du courtier compte",
     "pl.edu.body": "Les frais s'accumulent. 1% de frais récurrents peut vous coûter 25% de votre rendement sur 30 ans. Choisissez un courtier régulé (FCA, BaFin, FSMA, AMF…) avec des frais bas, une bonne offre ETF, et les enveloppes fiscales de votre pays (PEA, ISA, Pension III…).",
+    "pl.featured.h": "Sélection · Pour investisseurs européens",
+    "pl.featured.sub": "Six plateformes de référence avec analyse des frais en parallèle, calculateur de scénarios et notation détaillée.",
+    "pl.compare.h": "Comparaison des frais · Côte à côte",
+    "pl.compare.row": "Poste",
+    "pl.calc.h": "Calculateur de coût total",
+    "pl.calc.sub": "DCA par défaut — 50% ETF européen + 50% ETF américain, deux ordres par mois. Estimations indicatives ; taxes et frais de bourse exclus.",
+    "pl.calc.month": "Investissement mensuel",
+    "pl.calc.years": "Horizon de détention",
+    "pl.calc.profile": "Profil d'investisseur",
+    "pl.calc.dca": "ETF DCA (passif)",
+    "pl.calc.active": "Stock picking actif",
+    "pl.ratings.h": "Notations · Six critères",
+    "pl.ratings.broker": "Courtier",
+    "pl.ratings.fees": "Frais",
+    "pl.ratings.markets": "Marchés",
+    "pl.ratings.tools": "Outils",
+    "pl.ratings.betax": "Fisc. BE",
+    "pl.ratings.support": "Support",
+    "pl.ratings.overall": "Global",
 
     "lz.h1": "Portefeuilles paresseux · Sélection",
     "lz.desc": "Allocations éprouvées que vous configurez une fois et rééquilibrez chaque année.",
@@ -3615,18 +4671,103 @@ const I18N = {
     "nav.markets": "Markten",
     "nav.platforms": "Brokers",
     "nav.lazy": "Luie Portefeuilles",
+    "nav.education": "Educatie",
+    "nav.pricing": "Tarieven",
+    "bt.alloc.title": "Activa-allocatie",
+    "bt.alloc.equal": "Gelijk · P1",
+    "bt.alloc.norm": "Normaliseren · P1",
+    "bt.alloc.clear": "Wissen · P1",
+    "bt.alloc.equalRoot": "Gelijk",
+    "bt.alloc.normRoot": "Normaliseren",
+    "bt.alloc.clearRoot": "Wissen",
+    "bt.alloc.assetClass": "Activaklasse",
+    "bt.alloc.total": "Totaal",
+    "bt.names.title": "Portefeuillenamen",
+    "bt.names.p1": "Naam portefeuille 1",
+    "bt.names.p2": "Naam portefeuille 2",
+    "bt.names.p3": "Naam portefeuille 3",
+    "ed.h1": "Educatie · Beleggingsbibliotheek",
+    "ed.desc": "Een geselecteerde leeslijst van beleggingsklassiekers, gerangschikt per thema en niveau.",
+    "ed.intro.title": "Waarom boeken nog steeds beter zijn dan ruis",
+    "ed.intro.body": "Markten evolueren, maar de principes — discipline, waardering, risicobeheer — zijn al decennia geldig.",
+    "ed.level": "Niveau",
+    "ed.level.all": "Alle",
+    "ed.level.beg": "Beginner",
+    "ed.level.int": "Gevorderd",
+    "ed.level.adv": "Expert",
+    "ed.theme": "Thema",
+    "ed.theme.all": "Alle",
+    "ed.theme.value": "Value",
+    "ed.theme.indexing": "Indexering",
+    "ed.theme.macro": "Macro",
+    "ed.theme.behavioral": "Gedrag",
+    "ed.theme.risk": "Risico",
+    "ed.theme.trading": "Trading",
+    "pr.h1": "Tarieven",
+    "pr.desc": "Transparante maandelijkse plannen. Altijd opzegbaar. Alle niveaus bevatten de volledige backtest-engine en het Lazy Portfolios-catalogus.",
+    "pr.month": "/ maand",
+    "pr.starter.name": "Starter",
+    "pr.starter.sub": "Voor particulieren die portefeuilleanalyse verkennen.",
+    "pr.pro.name": "Pro",
+    "pr.pro.sub": "Voor gevorderde particuliere beleggers en analisten.",
+    "pr.inst.name": "Institutioneel",
+    "pr.inst.sub": "Voor vermogensbeheerders, family offices en kleine fondsen.",
+    "pr.feat.backtest": "Volledige backtest, 2 portefeuilles",
+    "pr.feat.mc": "Monte Carlo (1.000 simulaties)",
+    "pr.feat.lazy": "Lazy Portfolios-catalogus",
+    "pr.feat.markets": "Markten · heatmaps",
+    "pr.feat.pdf": "PDF-export",
+    "pr.feat.priority": "Prioritaire ondersteuning",
+    "pr.feat.backtest5": "Volledige backtest, tot 5 portefeuilles",
+    "pr.feat.mc10k": "Monte Carlo (10.000 simulaties)",
+    "pr.feat.efadv": "Efficient Frontier met restricties",
+    "pr.feat.pdf2": "PDF-export · institutioneel sjabloon",
+    "pr.feat.email": "E-mailondersteuning · binnen 24u",
+    "pr.feat.api": "API-toegang",
+    "pr.feat.allpro": "Alles uit Pro inbegrepen",
+    "pr.feat.unlimited": "Onbeperkt portefeuilles &amp; klanten",
+    "pr.feat.api2": "REST API-toegang",
+    "pr.feat.whitelabel": "White-label PDF-rapporten",
+    "pr.feat.priority2": "Prioritaire ondersteuning · 4u SLA",
+    "pr.feat.custom": "Op maat datasets &amp; benchmarks",
+    "pr.cta.starter": "Kies Starter",
+    "pr.cta.pro": "Kies Pro",
+    "pr.cta.inst": "Contact verkoop",
+    "pr.faq.h": "Veelgestelde vragen",
+    "pr.faq.q1": "Kan ik altijd opzeggen?",
+    "pr.faq.a1": "Ja. Maandelijkse abonnementen, op elk moment opzegbaar. Geen verborgen kosten.",
+    "pr.faq.q2": "Zijn mijn financiële gegevens veilig?",
+    "pr.faq.a2": "Alle invoer blijft in je browser. Portefeuilles worden lokaal opgeslagen; niets wordt naar een server gestuurd tenzij je expliciet een PDF exporteert.",
+    "pr.faq.q3": "Is Quantrih erkend als financiële adviseur?",
+    "pr.faq.a3": "Quantrih is een analytisch en educatief hulpmiddel — geen erkende beleggingsadviseur. Voor beleggingsbeslissingen, raadpleeg een erkende adviseur.",
+    "pr.faq.q4": "Bieden jullie institutionele kortingen?",
+    "pr.faq.a4": "Ja — voor teams van 5+ gebruikers bieden we volumeprijzen. Neem contact op via het Institutioneel-plan.",
+    "settings.title": "Instellingen",
+    "settings.lang": "Taal",
+    "settings.ccy": "Valuta",
+    "settings.theme": "Thema",
+    "settings.advanced": "Geavanceerd",
+    "settings.tweaks": "Tweaks-paneel",
+    "settings.tweaks.sub": "Dichtheid, accent, animaties…",
+    "ef.assets.sub": "Kies de activaklassen · min/max-restricties per activa (standaard 0–100%)",
+    "ef.rfRate": "Risicovrije rente",
+    "ef.simN": "Simulaties",
+    "ef.compare.sub": "Gelijkgewichts-benchmark vs Max-Sharpe · met downside-metrics",
+    "ef.compare.empty": "Bereken de frontier om de vergelijking te zien.",
+    "ef.alert.minAssets": "Selecteer minimaal 2 activa.",
+    "ef.alert.noData": "Onvoldoende data voor de geselecteerde activa.",
 
     "home.eyebrow": "Gratis · Open · Voor Europese Beleggers",
     "home.headline": "Analyseer uw portefeuilles<br><span class=\"hl\">in diepte</span>",
-    "home.subtitle": "30 jaar historische data, Monte Carlo simulaties, risicocijfers, luie portefeuilles en broker vergelijkingen — gratis, geen account vereist.",
+    "home.subtitle": "Lange-horizon historische data, Monte Carlo simulaties, risicocijfers, luie portefeuilles en broker vergelijkingen — alles op één plek.",
     "home.cta.backtest": "Start backtest",
     "home.cta.lazy": "Bekijk luie portefeuilles",
     "home.contact": "Vragen? <a href=\"mailto:contact@quantrih.com\">contact@quantrih.com</a>",
     "home.pill.free": "100% gratis",
     "home.pill.noAccount": "Geen account nodig",
-    "home.pill.data": "30 jaar data",
+    "home.pill.data": "Lange horizon",
     "home.pill.edu": "Educatief gebruik",
-    "home.fc.backtest": "Vergelijk portefeuilles over 30 jaar historische data. Drawdowns, voortschrijdende rendementen, Sharpe ratio en meer.",
+    "home.fc.backtest": "Vergelijk portefeuilles over lange-horizon historische data. Drawdowns, voortschrijdende rendementen, Sharpe ratio en meer.",
     "home.fc.montecarlo": "10.000 gesimuleerde paden met cashflows en inflatie. Visualiseer pensioenscenario's en succeswaarschijnlijkheden.",
     "home.fc.frontier": "Vind de optimale mix voor het hoogste voor risico gecorrigeerde rendement. Gebaseerd op Markowitz portefeuilletheorie.",
     "home.fc.markets": "Performance heatmaps voor wereldwijde indices, sectoren en portefeuillemodellen inclusief het Ivy Portfolio.",
@@ -3634,7 +4775,7 @@ const I18N = {
     "home.fc.platforms": "Vergelijk brokers voor Europese beleggers: kosten, functies, regelgeving en minimale storting.",
 
     "hero.title": "Quantrih backtest portfolio",
-    "hero.sub": "Gratis, open analyses voor Europese particuliere beleggers. Test 30 jaar data, vergelijk brokers, bouw luie portefeuilles — visueel.",
+    "hero.sub": "Open analyses voor Europese particuliere beleggers. Test datasets met lange horizon, vergelijk brokers, bouw luie portefeuilles — visueel.",
     "hero.edu": "Uitsluitend voor educatieve doeleinden · Geen financieel advies",
 
     "bt.h1": "Backtest een portefeuille",
@@ -3733,6 +4874,25 @@ const I18N = {
     "pl.desc": "Vergelijk brokers, kosten en functies voor Europese beleggers.",
     "pl.edu.title": "Waarom je broker keuze telt",
     "pl.edu.body": "Kosten stapelen op. Een terugkerende kost van 1% kan je over 30 jaar 25% van je rendement kosten. Kies een gereguleerde broker (FCA, BaFin, FSMA, AMF…) met lage kosten, ETF-aanbod, en de fiscale schillen van je land.",
+    "pl.featured.h": "Selectie · Voor Europese beleggers",
+    "pl.featured.sub": "Zes platforms van institutioneel niveau met side-by-side kostenanalyse, scenario-calculator en gedetailleerde beoordelingen.",
+    "pl.compare.h": "Kostenvergelijking · Naast elkaar",
+    "pl.compare.row": "Item",
+    "pl.calc.h": "Totaalkosten-calculator",
+    "pl.calc.sub": "Standaard DCA — 50% Europese ETF + 50% VS ETF, twee orders per maand. Alleen schattingen; belastingen en beurskosten uitgesloten.",
+    "pl.calc.month": "Maandelijkse inleg",
+    "pl.calc.years": "Beleggingshorizon",
+    "pl.calc.profile": "Beleggersprofiel",
+    "pl.calc.dca": "ETF DCA (passief)",
+    "pl.calc.active": "Actief stockpicking",
+    "pl.ratings.h": "Beoordelingen · Zes criteria",
+    "pl.ratings.broker": "Broker",
+    "pl.ratings.fees": "Kosten",
+    "pl.ratings.markets": "Markten",
+    "pl.ratings.tools": "Tools",
+    "pl.ratings.betax": "BE-fiscaal",
+    "pl.ratings.support": "Support",
+    "pl.ratings.overall": "Totaal",
 
     "lz.h1": "Luie Portefeuilles · Topkeuzes",
     "lz.desc": "Tijdgeteste allocaties die je één keer instelt en jaarlijks herbalanceert.",
@@ -3752,12 +4912,19 @@ function t(key) {
 function setLang(lang) {
   if (!I18N[lang]) return;
   currentLang = lang;
+  window.currentLang = lang;
   try { localStorage.setItem("quantrih-lang", lang); } catch(e) {}
   document.documentElement.lang = lang;
-  document.querySelectorAll(".lang-switch button").forEach(b => {
+  document.querySelectorAll(".lang-switch button, #settings-lang .settings-option").forEach(b => {
     b.classList.toggle("on", b.dataset.lang === lang);
   });
   applyI18n();
+  if (document.getElementById('page-platforms')?.classList.contains('active')) {
+    if (typeof renderPlatformsAll === 'function') renderPlatformsAll();
+  }
+  if (document.getElementById('page-education')?.classList.contains('active')) {
+    if (typeof renderBooks === 'function') renderBooks();
+  }
 }
 
 function applyI18n() {
@@ -4406,7 +5573,7 @@ const BROKERS_DATA = [
     tagline:"The global standard for professional-grade investing",
     founded:"1978", hq:"Greenwich, CT, USA", clients:"3M+",
     regulation:"SEC · FINRA · FCA · ASIC · MAS · CySEC",
-    fees:{stocks:"$0 (Lite) / $0.005–$0.35/share (Pro)", etfs:"$0", options:"$0.65/contract", crypto:"0.12%–0.18%", fx:"0.002%", margin:"5.83%–6.83%"},
+    fees:{stocks:"€3 fixed (EU) · $0.005/share (US, tiered)", etfs:"€3 fixed (EU)", options:"$0.65/contract", crypto:"0.12%–0.18%", fx:"0.002%", margin:"5.83%–6.83%"},
     minDeposit:"$0",
     features:["150+ global exchanges","API trading","Fractional shares","30+ currencies","Portfolio lending","IBKR Desktop & Mobile","SmartRouting technology","Paper trading"],
     pros:["Ultra-competitive fees","Unmatched global reach","Advanced tools for all levels","No inactivity or custody fees"],
@@ -4421,7 +5588,7 @@ const BROKERS_DATA = [
     tagline:"Europe's lowest-cost broker — €2/order on most stocks",
     founded:"2008", hq:"Amsterdam, Netherlands", clients:"2.5M+",
     regulation:"AFM · BaFin · AMF · FCA · FSMA",
-    fees:{stocks:"€2/order (EU) · €1+$1 (US)", etfs:"Free (Core Selection, 1/month)", options:"€0.75/contract", crypto:"N/A", fx:"0.25%", margin:"6.9% USD"},
+    fees:{stocks:"€1 (Core ETF) · $1+$1 (US) · €0 Euronext Brussels", etfs:"€1 handling (free on Tradegate)", options:"€0.75/contract", crypto:"N/A", fx:"0.25%", margin:"6.9% USD"},
     minDeposit:"€0",
     features:["50+ global exchanges","30 EU countries","Core ETF free list","No inactivity fee","No custody fee","Flatex Bankaufsicht custody","Mobile & web app"],
     pros:["Cheapest broker in Europe","No inactivity or withdrawal fees","Wide market access","User-friendly mobile app"],
@@ -4571,7 +5738,7 @@ const BROKERS_DATA = [
     tagline:"Belgium's leading online broker — KBC Group subsidiary",
     founded:"1999", hq:"Brussels, Belgium", clients:"200k+",
     regulation:"FSMA · NBB",
-    fees:{stocks:"€7.5 (Euronext) · €15 (US)", etfs:"€7.5–€15", options:"€7.5+", crypto:"N/A", fx:"0.5%", margin:"Variable"},
+    fees:{stocks:"€2.50 (≤€250) · €5 (≤€1k) · $2.50/$5 (US tiers)", etfs:"€2.50–€15 (size-based)", options:"€7.50+", crypto:"N/A", fx:"0.5%", margin:"Variable"},
     minDeposit:"€0",
     features:["Euronext Brussels specialist","25+ exchanges","Funds & bonds","Tax optimization tools","Belgian TOB tax reporting","Mobile app","KBC Group backing","Stock alerts"],
     pros:["Best Belgian market access","Tax reporting (TOB) included","Regulated by FSMA","KBC Group safety"],
@@ -4623,6 +5790,111 @@ const BROKERS_DATA = [
     cons:["Only 1 free stock trade/month (Standard)","High crypto spreads","Investment account not FSCS-protected like bank"],
     news:"Revolut 2026: 50M+ users globally · Revolut Bank launched in UK 2024 · Investing expanded to 30 countries · Revenue £3.1B in 2024 (+72%)",
     rating:"7.6/10"
+  },
+  {
+    id:"mexem", rank:16, name:"MEXEM", short:"MEXEM", flag:"🇪🇺",
+    domain:"mexem.com", url:"https://www.mexem.com",
+    region:"Europe", type:"broker",
+    tagline:"Interactive Brokers infrastructure with European tax reporting",
+    founded:"2014", hq:"Cyprus / Netherlands", clients:"100k+",
+    regulation:"CySEC · Passporting EU (MiFID II)",
+    fees:{stocks:"0.06% min €1 (EU) · IB-grade pricing (US)", etfs:"0.06% min €1", options:"$0.65/contract", crypto:"N/A", fx:"0.05% min $5", margin:"IB benchmark"},
+    minDeposit:"€2,000",
+    features:["IBKR backbone (TWS/IBKR Mobile)","135+ markets","Multi-currency accounts","No inactivity fees","No deposit/account fees","€8 EUR wire withdrawal","Bonds, options, futures","Local EU language support"],
+    pros:["IBKR-grade pricing without IBKR complexity","No inactivity or platform fees","Strong EU regulatory framework","Multi-language EU support"],
+    cons:["€2,000 minimum deposit","CySEC regulation (vs BaFin/AFM)","Fee schedule depends on IBKR upstream"],
+    news:"MEXEM 2025: Fee schedule synced with IBKR rates (April 2025) · Expanded EU language support · No inactivity/account/deposit fees confirmed",
+    rating:"8.5/10"
+  },
+  {
+    id:"lightyear", rank:17, name:"Lightyear", short:"Lightyear", flag:"🇪🇪🇪🇺",
+    domain:"lightyear.com", url:"https://lightyear.com/en-eu",
+    region:"Europe", type:"broker",
+    tagline:"Mobile-first European broker with up to 1.95% on idle EUR cash",
+    founded:"2020", hq:"Tallinn, Estonia / London, UK", clients:"500k+",
+    regulation:"FCA (UK) · FSA Estonia · MiFID II passporting",
+    fees:{stocks:"1 free order/month, then 0.25% (€1 min)", etfs:"€0 execution & custody", options:"N/A", crypto:"N/A", fx:"0.35% (€1k/month free)", margin:"N/A"},
+    minDeposit:"€1",
+    features:["1 free stock order per month","ETFs: zero execution & custody fees","Up to 1.95% APY on EUR cash (MMFs)","€1k/month free FX allowance","Multi-currency wallets","Auto-invest plans","Co-founders ex-Wise/Robinhood","ISA-style EU tax wrappers (where eligible)"],
+    pros:["No-frills mobile UX","Idle cash earns up to 1.95% APY","Free ETF execution & custody","Transparent simple pricing"],
+    cons:["No options/bonds/futures","Limited platform tooling vs IBKR/Saxo","0.25% above first free trade adds up for active traders"],
+    news:"Lightyear 2026: 500k+ clients · EUR MMF rates 1.95% APY · ISA wrappers added in select EU markets · Auto-invest plans launched",
+    rating:"7.7/10"
+  },
+  {
+    id:"ing-self-invest", rank:18, name:"ING Self Invest", short:"ING SI", flag:"🇧🇪",
+    domain:"ing.be", url:"https://www.ing.be/en/individuals/investing/ing-self-invest",
+    region:"Belgium", type:"broker",
+    tagline:"Belgian bank-broker integrated with your ING current account",
+    founded:"2001", hq:"Brussels, Belgium", clients:"Part of ING Belgium (~2.5M retail clients)",
+    regulation:"FSMA · NBB · ECB",
+    fees:{stocks:"0.35% min €1 (Euronext) · 0.50% min €1 (other)", etfs:"0.35% min €1", options:"N/A", crypto:"N/A", fx:"~0.5%", margin:"N/A"},
+    minDeposit:"€0",
+    features:["Direct integration with ING bank account","TOB (Belgian transaction tax) handled automatically","Active ETF range curated by ING","Mobile app included in ING Banking","Pension III compatible","Reporting fiscal Belgique"],
+    pros:["TOB automatically declared","Bank-grade safety (ING Group)","One-stop banking + investing","No platform/account fee"],
+    cons:["Custody fee 0.0242%/line/month","Higher than DEGIRO/IBKR","Limited US market access","Belgian residents only"],
+    news:"ING Self Invest 2026: Active ETF range expanded · Mobile app fully integrated with ING Banking · TOB auto-reporting confirmed",
+    rating:"7.2/10"
+  },
+  {
+    id:"keytrade", rank:19, name:"Keytrade Bank", short:"Keytrade", flag:"🇧🇪",
+    domain:"keytradebank.be", url:"https://www.keytradebank.be",
+    region:"Belgium", type:"broker",
+    tagline:"Belgian online bank with broker tools and KEYPLAN ETF DCA",
+    founded:"1998", hq:"Brussels, Belgium", clients:"300k+",
+    regulation:"FSMA · NBB · part of Crédit Mutuel Arkéa",
+    fees:{stocks:"€14.95 (≤€2.5k) · 0.295% above (Euronext)", etfs:"KEYPLAN: free DCA on selected list", options:"N/A", crypto:"N/A", fx:"0.5%", margin:"Variable"},
+    minDeposit:"€0",
+    features:["KEYPLAN free ETF DCA","Banking + investing combo","Reporting fiscal Belgique","TOB auto-reporting","Mobile app","Crédit Mutuel Arkéa group","Savings, pension, mortgage available","Belgian customer support"],
+    pros:["Free KEYPLAN ETF auto-investing","Belgian bank reliability","Full financial product range","Crédit Mutuel Arkéa parent group"],
+    cons:["High per-order fee outside KEYPLAN","No US market direct access","Limited advanced trading tools"],
+    news:"Keytrade 2026: KEYPLAN extended to 50+ ETFs · Crédit Mutuel Arkéa investment confirmed · Mobile UI redesign Q1 2026",
+    rating:"7.0/10"
+  },
+  {
+    id:"fortuneo", rank:20, name:"Fortuneo", short:"Fortuneo", flag:"🇫🇷",
+    domain:"fortuneo.fr", url:"https://www.fortuneo.fr",
+    region:"France", type:"broker",
+    tagline:"French online bank with PEA/PEA-PME/Assurance-Vie + 0% custody",
+    founded:"2000", hq:"Brest, France", clients:"1M+",
+    regulation:"ACPR · AMF · Crédit Mutuel Arkéa",
+    fees:{stocks:"€1.95 (≤€500) · €3.90 (≤€2k) · €9.90 (≤€10k) · 0.12% above", etfs:"Free on Fortuneo ETF list (Euronext)", options:"N/A", crypto:"N/A", fx:"0.5%", margin:"Variable"},
+    minDeposit:"€0",
+    features:["PEA · PEA-PME · Assurance-Vie","Free ETF list (Euronext)","No custody · no account fee","Reporting fiscal France auto","Crédit Mutuel Arkéa group","Premium card included","Mobile + web app","French customer support"],
+    pros:["No custody fees","Tier-based pricing rewards small DCA","Full PEA / Assurance-Vie offer","French tax wrappers integrated"],
+    cons:["No US direct (only via SRD/CFD)","Limited international markets","No options/futures"],
+    news:"Fortuneo 2026: ETF free list expanded · Doubled client target by 2027 · Crédit Mutuel Arkéa funding renewed",
+    rating:"7.6/10"
+  },
+  {
+    id:"bnp-easy", rank:21, name:"BNP Paribas Easy Invest", short:"BNP Easy", flag:"🇫🇷🇧🇪",
+    domain:"mabanque.bnpparibas", url:"https://mabanque.bnpparibas/en/our-services/easy-invest",
+    region:"France/Belgium", type:"broker",
+    tagline:"BNP Paribas mobile app with curated ETF and stock investing",
+    founded:"2018 (BNP Mobile Invest)", hq:"Paris, France", clients:"500k+",
+    regulation:"ACPR · FSMA · BNP Paribas",
+    fees:{stocks:"€2.50 (≤€500) · 0.5% above", etfs:"Free DCA on selected ETFs", options:"N/A", crypto:"N/A", fx:"0.5%", margin:"N/A"},
+    minDeposit:"€0",
+    features:["Mobile-first BNP Paribas app","Free ETF DCA on curated list","PEA / Assurance-Vie compatible","Bank account integration","Educational content","Auto-invest plans","French/Belgian residents","BNP Paribas group safety"],
+    pros:["Big-bank backing (BNP Paribas)","Free ETF DCA","Mobile-first UX","Integration with BNP account"],
+    cons:["Limited stock universe","Higher per-order fee outside curated list","BNP customers preferred"],
+    news:"BNP Paribas Easy Invest 2026: 500k+ users · ETF DCA list expanded · Now available in Belgium via BNP Paribas Fortis",
+    rating:"7.1/10"
+  },
+  {
+    id:"bux-zero", rank:22, name:"BUX Zero", short:"BUX", flag:"🇳🇱🇪🇺",
+    domain:"getbux.com", url:"https://www.getbux.com",
+    region:"Europe", type:"broker",
+    tagline:"Mobile-first European broker with €0 ZERO orders and fractional shares",
+    founded:"2014 (Zero in 2019)", hq:"Amsterdam, Netherlands", clients:"800k+",
+    regulation:"AFM · BaFin · ABN AMRO Clearing custodian",
+    fees:{stocks:"€0 (ZERO order, batched 8h/14h) · €1 (instant)", etfs:"Free ZERO list", options:"N/A", crypto:"N/A", fx:"0.25%", margin:"N/A"},
+    minDeposit:"€0",
+    features:["€0 ZERO orders (batched 8:00 / 14:00 CET)","€1 instant orders","Fractional shares from €1","2,500+ stocks & ETFs","Auto-invest plans","Mobile-first UX","Round-up investing","ABN AMRO Clearing custody"],
+    pros:["Zero-cost batched orders","Fractional shares from €1","Clean mobile UX","ABN AMRO Clearing safety"],
+    cons:["No instant order without €1 fee","No options/CFDs","Limited US market"],
+    news:"BUX Zero 2026: 800k+ clients across EU · ABN AMRO Clearing partnership renewed · Round-up investing launched",
+    rating:"7.4/10"
   }
 ];
 
@@ -4716,36 +5988,35 @@ function goPage(p) {
   });
   if (p === "markets") renderMarkets();
   if (p === "lazy") renderLazyList();
-  if (p === "platforms") renderPlatforms();
+  if (p === "platforms") renderPlatformsAll();
   if (p === "frontier") renderFrontier();
+  if (p === "education") renderBooks();
+  if (p === "pricing") { /* static page */ }
   if (p === "montecarlo") { /* stays as-is, results render on Run */ }
   window.scrollTo(0, 0);
 }
 
 function setCcy(c) {
   state.baseCcy = c;
-  document.querySelectorAll(".ccy-switch button").forEach(b => {
+  document.querySelectorAll(".ccy-switch button, #settings-ccy .settings-option").forEach(b => {
     b.classList.toggle("on", b.dataset.ccy === c);
   });
-  // update label in backtest form
   const btCcy = document.getElementById("bt-ccy-lbl");
   if (btCcy) btCcy.textContent = c;
-  // re-render current page if data depends on currency
   if (state.page === "markets") renderMkTabContent(_mkTab);
   if (state.page === "lazy") renderLazyList();
   renderTickerTape();
 }
 
 let _dark = false;
+let _themeMode = 'light'; // 'light' | 'dark' | 'auto'
 function applyTheme(dark) {
   _dark = dark;
   document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
   try { localStorage.setItem("qtrh_theme", dark ? "dark" : "light"); } catch(e) {}
-  // Re-apply tweak overrides (so accent palette stays consistent across themes)
   if (typeof _tweakState !== 'undefined' && typeof applyTweaks === 'function') {
     applyTweaks(_tweakState);
   }
-  // swap icon
   const icon = document.getElementById("theme-icon");
   if (icon) {
     icon.innerHTML = dark
@@ -4754,11 +6025,53 @@ function applyTheme(dark) {
   }
 }
 function toggleTheme() {
+  _themeMode = _dark ? 'light' : 'dark';
+  try { localStorage.setItem("qtrh_theme_mode", _themeMode); } catch(e) {}
   applyTheme(!_dark);
-  // Re-render pages whose visuals depend on theme (heatmaps, scatter colors)
+  if (state.page === "markets") renderMarkets();
+  if (state.page === "lazy") renderLazyList();
+  _syncSettings();
+}
+function setTheme(mode) {
+  _themeMode = mode;
+  try { localStorage.setItem("qtrh_theme_mode", mode); } catch(e) {}
+  let dark;
+  if (mode === 'auto') {
+    dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  } else {
+    dark = mode === 'dark';
+  }
+  applyTheme(dark);
   if (state.page === "markets") renderMarkets();
   if (state.page === "lazy") renderLazyList();
 }
+
+// Settings panel
+function openSettings() {
+  document.getElementById('settings-overlay')?.classList.add('open');
+  document.getElementById('settings-panel')?.classList.add('open');
+  _syncSettings();
+}
+function closeSettings() {
+  document.getElementById('settings-overlay')?.classList.remove('open');
+  document.getElementById('settings-panel')?.classList.remove('open');
+}
+function _syncSettings() {
+  const lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
+  document.querySelectorAll('#settings-lang .settings-option').forEach(b => {
+    b.classList.toggle('on', b.dataset.lang === lang);
+  });
+  const ccy = (state && state.baseCcy) || 'EUR';
+  document.querySelectorAll('#settings-ccy .settings-option').forEach(b => {
+    b.classList.toggle('on', b.dataset.ccy === ccy);
+  });
+  document.querySelectorAll('#settings-theme .settings-option').forEach(b => {
+    b.classList.toggle('on', b.dataset.themeOpt === _themeMode);
+  });
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeSettings();
+});
 
 // ═══════════════════════════════════════════════════════════════════════════
 // BACKTEST — UI rendering for the new layout
@@ -4801,10 +6114,38 @@ function initBacktestRows() {
   }
 }
 
+function getPortfolioName(p) {
+  const el = document.getElementById('bt-name-' + (p + 1));
+  const v = (el && el.value || '').trim();
+  return v || ('P' + (p + 1));
+}
+
+function onPortNameChange() {
+  renderBacktestAllocTable();
+  // Update the mini-buttons to use the P1 custom name
+  const p1 = getPortfolioName(0);
+  const eq = document.getElementById('bt-alloc-equal');
+  const nm = document.getElementById('bt-alloc-norm');
+  const cl = document.getElementById('bt-alloc-clear');
+  if (eq) eq.textContent = (t('bt.alloc.equalRoot') || 'Equal') + ' · ' + p1;
+  if (nm) nm.textContent = (t('bt.alloc.normRoot') || 'Normalize') + ' · ' + p1;
+  if (cl) cl.textContent = (t('bt.alloc.clearRoot') || 'Clear') + ' · ' + p1;
+}
+
 function renderBacktestAllocTable() {
   const numPorts = parseInt(document.getElementById("bt-num").value);
+  const thead = document.getElementById("bt-alloc-thead");
   const tbody = document.getElementById("bt-alloc-tbody");
-  if (!tbody) return;
+  if (!tbody || !thead) return;
+  // Dynamic header
+  const colWidth = numPorts >= 3 ? 16 : 18;
+  let theadHtml = `<tr><th style="width:${40 - (numPorts - 2) * 4}%">${t('bt.alloc.assetClass') || 'Asset Class'}</th>`;
+  for (let p = 0; p < numPorts; p++) {
+    theadHtml += `<th style="width:${colWidth}%">${getPortfolioName(p)} (%)</th>`;
+  }
+  theadHtml += '<th style="width:40px"></th></tr>';
+  thead.innerHTML = theadHtml;
+
   let html = '';
   acRows.forEach((row, ri) => {
     html += `<tr>
@@ -4817,7 +6158,8 @@ function renderBacktestAllocTable() {
     html += '</tr>';
   });
   // totals row
-  html += '<tr class="bt-totals"><td>Total</td>';
+  const totalLbl = t('bt.alloc.total') || 'Total';
+  html += `<tr class="bt-totals"><td>${totalLbl}</td>`;
   for (let p = 0; p < numPorts; p++) {
     const sum = acRows.reduce((s, r) => s + (Number(r.w[p]) || 0), 0);
     const cls = sum === 100 ? 'ok' : (sum > 100 ? 'over' : 'low');
@@ -6179,10 +7521,10 @@ const MARKET_INDICES = ["SP500", "NDX", "DAX", "CAC40", "FTSE100", "STOXX50", "I
 // ═══════════════════════════════════════════════════════════════════════════
 
 let _efAssets = [];
+let _efConstraints = []; // [{min, max}] in %, parallel to _efAssets
 
 // Default asset selection for the EF page
 function defaultEFAssets() {
-  // Use available ASSET_DATA tickers for credible defaults
   const candidates = ["SPY", "QQQ", "EFA", "EEM", "VNQ", "TLT", "LQD", "GLD"];
   return candidates.filter(t => typeof ASSET_DATA !== "undefined" && ASSET_DATA[t]).slice(0, 6);
 }
@@ -6190,7 +7532,21 @@ function defaultEFAssets() {
 function initEFAssets() {
   if (_efAssets.length === 0) {
     _efAssets = defaultEFAssets();
+    _efConstraints = _efAssets.map(() => ({ min: 0, max: 100 }));
+  } else if (_efConstraints.length !== _efAssets.length) {
+    _efConstraints = _efAssets.map((_, i) => _efConstraints[i] || { min: 0, max: 100 });
   }
+}
+
+function setEFMin(i, val) {
+  const v = Math.max(0, Math.min(100, parseFloat(val) || 0));
+  if (!_efConstraints[i]) _efConstraints[i] = { min: 0, max: 100 };
+  _efConstraints[i].min = v;
+}
+function setEFMax(i, val) {
+  const v = Math.max(0, Math.min(100, parseFloat(val) || 100));
+  if (!_efConstraints[i]) _efConstraints[i] = { min: 0, max: 100 };
+  _efConstraints[i].max = v;
 }
 
 function renderFrontier() {
@@ -6198,16 +7554,21 @@ function renderFrontier() {
   const list = document.getElementById("ef-assets-list");
   if (!list) return;
   const allTickers = (typeof ASSET_DATA !== "undefined") ? Object.keys(ASSET_DATA) : [];
-  list.innerHTML = _efAssets.map((ticker, i) => `
+  list.innerHTML = _efAssets.map((ticker, i) => {
+    const c = _efConstraints[i] || { min: 0, max: 100 };
+    return `
     <div class="frontier-asset-row">
       <span class="idx">${i+1}</span>
       <select onchange="setEFAsset(${i}, this.value)">
         ${allTickers.map(t => `<option value="${t}" ${t===ticker?'selected':''}>${ASSET_DATA[t].label || ASSET_DATA[t].short || t}</option>`).join('')}
       </select>
-      <input type="text" value="auto" disabled class="pct-input">
+      <input type="number" class="pct-input ef-min" min="0" max="100" step="5" value="${c.min}" onchange="setEFMin(${i}, this.value)" title="Min weight %">
+      <span class="ef-sep">–</span>
+      <input type="number" class="pct-input ef-max" min="0" max="100" step="5" value="${c.max}" onchange="setEFMax(${i}, this.value)" title="Max weight %">
+      <span class="ef-pct-suffix">%</span>
       <button class="remove-btn" onclick="removeEFAsset(${i})" title="Remove">×</button>
     </div>
-  `).join('');
+  `;}).join('');
 }
 
 function setEFAsset(i, ticker) {
@@ -6218,13 +7579,17 @@ function addEFAsset() {
   if (_efAssets.length >= 10) return;
   const allTickers = (typeof ASSET_DATA !== "undefined") ? Object.keys(ASSET_DATA) : [];
   const next = allTickers.find(t => !_efAssets.includes(t));
-  if (next) _efAssets.push(next);
+  if (next) {
+    _efAssets.push(next);
+    _efConstraints.push({ min: 0, max: 100 });
+  }
   renderFrontier();
 }
 
 function removeEFAsset(i) {
   if (_efAssets.length <= 2) return;
   _efAssets.splice(i, 1);
+  _efConstraints.splice(i, 1);
   renderFrontier();
 }
 
@@ -6274,39 +7639,81 @@ function portfolioStats(weights, stats) {
 }
 
 function randomWeights(n) {
-  // Dirichlet-like sampling: random uniform then normalize
   const w = Array.from({length: n}, () => Math.random());
   const sum = w.reduce((s, x) => s + x, 0);
   return w.map(x => x / sum);
 }
 
+function randomWeightsConstrained(n, constraints) {
+  // Generate random weights respecting min/max constraints (in %, normalized to fractions)
+  // Strategy: sample uniformly within bounds, then normalize. Up to 50 retries if infeasible.
+  if (!constraints || constraints.length !== n) return randomWeights(n);
+  for (let attempt = 0; attempt < 50; attempt++) {
+    const w = constraints.map(c => {
+      const lo = (c.min || 0) / 100;
+      const hi = (c.max || 100) / 100;
+      return lo + Math.random() * Math.max(0, hi - lo);
+    });
+    const sum = w.reduce((s, x) => s + x, 0);
+    if (sum <= 0) continue;
+    const norm = w.map(x => x / sum);
+    // Verify normalized weights still satisfy constraints (approximate)
+    let ok = true;
+    for (let i = 0; i < n; i++) {
+      const lo = (constraints[i].min || 0) / 100;
+      const hi = (constraints[i].max || 100) / 100;
+      if (norm[i] < lo - 0.01 || norm[i] > hi + 0.01) { ok = false; break; }
+    }
+    if (ok) return norm;
+  }
+  // Fallback: simple normalization
+  return randomWeights(n);
+}
+
+// Downside (semi) deviation: stddev of negative excess returns relative to MAR
+function downsideDeviation(weights, tickers, mar) {
+  const n = tickers.length;
+  const series = tickers.map(t => Object.values(ASSET_DATA[t].returns).filter(r => typeof r === "number" && !isNaN(r)));
+  const minLen = Math.min(...series.map(s => s.length));
+  let sumSq = 0, count = 0;
+  for (let k = 0; k < minLen; k++) {
+    let portRet = 0;
+    for (let i = 0; i < n; i++) portRet += weights[i] * series[i][k];
+    const downside = Math.min(0, portRet - mar);
+    sumSq += downside * downside;
+    count++;
+  }
+  return count ? Math.sqrt(sumSq / count) : 0;
+}
+
 function runFrontier() {
   const tickers = _efAssets.slice();
   if (tickers.length < 2) {
-    alert("Select at least 2 assets.");
+    alert(t('ef.alert.minAssets') || "Select at least 2 assets.");
     return;
   }
   const stats = computeStats(tickers);
   if (!stats) {
-    alert("Not enough data for the selected assets.");
+    alert(t('ef.alert.noData') || "Not enough data for the selected assets.");
     return;
   }
 
-  // Random Monte Carlo sampling (1000 portfolios)
-  const N = 1000;
+  // Read user-configured risk-free rate and simulation count
+  const rfRate = parseFloat(document.getElementById('ef-rfrate')?.value || 2);
+  const simN = Math.max(500, Math.min(20000, parseInt(document.getElementById('ef-simn')?.value || 2000, 10)));
+
+  const constraints = _efConstraints.slice(0, stats.n);
   const points = [];
-  for (let i = 0; i < N; i++) {
-    const w = randomWeights(stats.n);
+  for (let i = 0; i < simN; i++) {
+    const w = randomWeightsConstrained(stats.n, constraints);
     const ps = portfolioStats(w, stats);
-    // Returns are stored as percentages already (e.g. 10.5 means +10.5%) — keep as-is
-    points.push({ x: ps.sigma, y: ps.mu, weights: w, sharpe: (ps.mu - 2) / ps.sigma });
+    const sharpe = ps.sigma > 0 ? (ps.mu - rfRate) / ps.sigma : 0;
+    points.push({ x: ps.sigma, y: ps.mu, weights: w, sharpe });
   }
 
-  // Find tangency (max Sharpe)
   let tangent = points[0];
   for (const p of points) if (p.sharpe > tangent.sharpe) tangent = p;
 
-  // Find min variance
   let minVar = points[0];
   for (const p of points) if (p.x < minVar.x) minVar = p;
 
@@ -6321,6 +7728,12 @@ function runFrontier() {
   // Equal-weight provided portfolio
   const eqW = Array(stats.n).fill(1 / stats.n);
   const provided = portfolioStats(eqW, stats);
+
+  // Downside risk metrics (using risk-free rate as MAR)
+  const dsdProv = downsideDeviation(eqW, tickers, rfRate);
+  const dsdTang = downsideDeviation(tangent.weights, tickers, rfRate);
+  const sortinoProv = dsdProv > 0 ? (provided.mu - rfRate) / dsdProv : 0;
+  const sortinoTang = dsdTang > 0 ? (tangent.y - rfRate) / dsdTang : 0;
 
   // Render chart
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -6350,6 +7763,20 @@ function runFrontier() {
           tension: 0.3
         },
         {
+          label: "Capital Allocation Line",
+          data: (() => {
+            const maxX = Math.max(...points.map(p => p.x), tangent.x) * 1.1;
+            const slope = tangent.x > 0 ? (tangent.y - rfRate) / tangent.x : 0;
+            return [{ x: 0, y: rfRate }, { x: maxX, y: rfRate + slope * maxX }];
+          })(),
+          showLine: true,
+          borderColor: "rgba(47, 143, 77, 0.55)",
+          backgroundColor: "transparent",
+          pointRadius: 0,
+          borderWidth: 1.5,
+          borderDash: [6, 4]
+        },
+        {
           label: "Tangency (max Sharpe)",
           data: [{ x: tangent.x, y: tangent.y }],
           backgroundColor: "#2f8f4d",
@@ -6375,6 +7802,14 @@ function runFrontier() {
           borderWidth: 2,
           pointRadius: 7,
           pointStyle: 'rectRounded'
+        },
+        {
+          label: "Risk-Free",
+          data: [{ x: 0, y: rfRate }],
+          backgroundColor: "#2f8f4d",
+          borderColor: "transparent",
+          pointRadius: 4,
+          pointStyle: 'crossRot'
         }
       ]
     },
@@ -6405,8 +7840,18 @@ function runFrontier() {
   });
 
   // Render comparison card
-  const sharpeProv = (provided.mu - 2) / provided.sigma;
+  const sharpeProv = provided.sigma > 0 ? (provided.mu - rfRate) / provided.sigma : 0;
   const sharpeTang = tangent.sharpe;
+  const dSharpe = sharpeTang - sharpeProv;
+  const dSortino = sortinoTang - sortinoProv;
+  const lblL = (typeof currentLang !== 'undefined' ? currentLang : 'en');
+  const efL = {
+    en: { exp:'Expected return', vol:'Volatility (σ)', sharpe:'Sharpe Ratio', sortino:'Sortino Ratio', dsd:'Downside dev.', weights:'Optimal weights (Tangency)' },
+    fr: { exp:'Rendement espéré', vol:'Volatilité (σ)', sharpe:'Ratio de Sharpe', sortino:'Ratio de Sortino', dsd:'Déviation downside', weights:'Allocations optimales (Tangence)' },
+    nl: { exp:'Verwacht rendement', vol:'Volatiliteit (σ)', sharpe:'Sharpe-ratio', sortino:'Sortino-ratio', dsd:'Downside-deviatie', weights:'Optimale allocaties (Tangens)' }
+  }[lblL] || {
+    en: { exp:'Expected return', vol:'Volatility (σ)', sharpe:'Sharpe Ratio', sortino:'Sortino Ratio', dsd:'Downside dev.', weights:'Optimal weights (Tangency)' }
+  }.en;
   document.getElementById("ef-compare").innerHTML = `
     <table class="metrics-table-wide">
       <thead>
@@ -6414,27 +7859,39 @@ function runFrontier() {
       </thead>
       <tbody>
         <tr>
-          <td>Expected return</td>
+          <td>${efL.exp}</td>
           <td>${provided.mu.toFixed(2)}%</td>
           <td>${tangent.y.toFixed(2)}%</td>
           <td class="${tangent.y - provided.mu > 0 ? 'pos' : 'neg'}">${(tangent.y - provided.mu >= 0 ? '+' : '') + (tangent.y - provided.mu).toFixed(2)}%</td>
         </tr>
         <tr>
-          <td>Volatility</td>
+          <td>${efL.vol}</td>
           <td>${provided.sigma.toFixed(2)}%</td>
           <td>${tangent.x.toFixed(2)}%</td>
           <td class="${tangent.x - provided.sigma < 0 ? 'pos' : 'neg'}">${(tangent.x - provided.sigma >= 0 ? '+' : '') + (tangent.x - provided.sigma).toFixed(2)}%</td>
         </tr>
         <tr>
-          <td>Sharpe ratio</td>
+          <td>${efL.dsd}</td>
+          <td>${dsdProv.toFixed(2)}%</td>
+          <td>${dsdTang.toFixed(2)}%</td>
+          <td class="${dsdTang - dsdProv < 0 ? 'pos' : 'neg'}">${(dsdTang - dsdProv >= 0 ? '+' : '') + (dsdTang - dsdProv).toFixed(2)}%</td>
+        </tr>
+        <tr>
+          <td>${efL.sharpe}</td>
           <td>${sharpeProv.toFixed(3)}</td>
           <td><span class="tangency-pin">${sharpeTang.toFixed(3)}</span></td>
-          <td class="${sharpeTang - sharpeProv > 0 ? 'pos' : 'neg'}">${(sharpeTang - sharpeProv >= 0 ? '+' : '') + (sharpeTang - sharpeProv).toFixed(3)}</td>
+          <td class="${dSharpe > 0 ? 'pos' : 'neg'}">${(dSharpe >= 0 ? '+' : '') + dSharpe.toFixed(3)}</td>
+        </tr>
+        <tr>
+          <td>${efL.sortino}</td>
+          <td>${sortinoProv.toFixed(3)}</td>
+          <td>${sortinoTang.toFixed(3)}</td>
+          <td class="${dSortino > 0 ? 'pos' : 'neg'}">${(dSortino >= 0 ? '+' : '') + dSortino.toFixed(3)}</td>
         </tr>
       </tbody>
     </table>
     <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-3);margin-bottom:8px;">Optimal weights (Tangency)</div>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-3);margin-bottom:8px;">${efL.weights}</div>
       ${tangent.weights.map((w, i) => `
         <div style="display:flex;justify-content:space-between;padding:4px 0;font-size:13px;">
           <span>${ASSET_DATA[tickers[i]].label || tickers[i]}</span>
@@ -6443,6 +7900,43 @@ function runFrontier() {
       `).join('')}
     </div>
   `;
+
+  // Key statistics card
+  const keyEl = document.getElementById('ef-key-stats');
+  if (keyEl) {
+    const calSlope = tangent.x > 0 ? (tangent.y - rfRate) / tangent.x : 0;
+    const ks = {
+      en: { rf:'Risk-Free Rate', cal:'CAL slope', sims:'Simulations', diversification:'Diversification' },
+      fr: { rf:'Taux sans risque', cal:'Pente CAL', sims:'Simulations', diversification:'Diversification' },
+      nl: { rf:'Risicovrije rente', cal:'CAL-helling', sims:'Simulaties', diversification:'Diversificatie' }
+    }[lblL] || {
+      en: { rf:'Risk-Free Rate', cal:'CAL slope', sims:'Simulations', diversification:'Diversification' }
+    }.en;
+    const nonZero = tangent.weights.filter(w => w > 0.01).length;
+    keyEl.style.display = '';
+    keyEl.innerHTML = `
+      <div class="ef-key-stat">
+        <div class="ef-key-stat-label">${ks.rf}</div>
+        <div class="ef-key-stat-value">${rfRate.toFixed(1)}%</div>
+        <div class="ef-key-stat-sub">annualized</div>
+      </div>
+      <div class="ef-key-stat">
+        <div class="ef-key-stat-label">${ks.cal}</div>
+        <div class="ef-key-stat-value">${calSlope.toFixed(3)}</div>
+        <div class="ef-key-stat-sub">return per unit of σ</div>
+      </div>
+      <div class="ef-key-stat">
+        <div class="ef-key-stat-label">${ks.sims}</div>
+        <div class="ef-key-stat-value">${simN.toLocaleString()}</div>
+        <div class="ef-key-stat-sub">random portfolios</div>
+      </div>
+      <div class="ef-key-stat">
+        <div class="ef-key-stat-label">${ks.diversification}</div>
+        <div class="ef-key-stat-value">${nonZero} / ${tangent.weights.length}</div>
+        <div class="ef-key-stat-sub">non-zero weights</div>
+      </div>
+    `;
+  }
 
   // Render correlation matrix
   const corrEl = document.getElementById("ef-corr");
@@ -7386,6 +8880,325 @@ function renderPlatforms() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// FEATURED PLATFORMS · Detailed comparison + cost calculator
+// ═══════════════════════════════════════════════════════════════════════════
+const FEATURED_BROKER_IDS = ['ibkr', 'degiro', 'saxo', 'bolero', 'mexem', 'lightyear'];
+
+const FEATURED_DETAIL = {
+  ibkr: {
+    bestFor:   { en: 'Active traders',           fr: 'Trading actif',          nl: 'Actieve traders' },
+    miniline:  { en: 'Lowest cost · global reach', fr: 'Frais minimes · portée mondiale', nl: 'Laagste kosten · wereldwijd' },
+    fees: { eu: '€3 fixed', us: '$0.005/share', etf: '€3 fixed', fx: '0.002%', custody: '€0', transfer: '€0' },
+    ratings: { fees: 5, markets: 5, tools: 5, betax: 3, support: 4 }
+  },
+  degiro: {
+    bestFor:   { en: 'Low-cost EU access',  fr: 'Frais minimes Europe',  nl: 'Goedkope EU-toegang' },
+    miniline:  { en: 'Free Euronext Brussels · Core ETF €1', fr: 'Euronext Bruxelles gratuit · ETF Core €1', nl: 'Euronext Brussel gratis · Core ETF €1' },
+    fees: { eu: '€1 (Core ETF) · €0 EBR', us: '$1 + $1', etf: '€1 (free Tradegate)', fx: '0.25%', custody: '€0', transfer: '€20/pos' },
+    ratings: { fees: 5, markets: 4, tools: 3, betax: 5, support: 3 }
+  },
+  saxo: {
+    bestFor:   { en: 'Instrument breadth', fr: 'Largeur d\'offre',     nl: 'Instrumentbreedte' },
+    miniline:  { en: '71k+ instruments · 3 tier programme', fr: '71k+ instruments · 3 paliers',  nl: '71k+ instrumenten · 3 niveaus' },
+    fees: { eu: 'from €1 (Classic)', us: '$1 min', etf: 'from €1', fx: '0.5%', custody: 'varies', transfer: 'fee/pos' },
+    ratings: { fees: 3, markets: 5, tools: 5, betax: 4, support: 4 }
+  },
+  bolero: {
+    bestFor:   { en: 'Belgian tax reporting',  fr: 'Reporting fiscal BE',  nl: 'Belgische TOB' },
+    miniline:  { en: 'KBC Group · TOB included', fr: 'Groupe KBC · TOB intégré', nl: 'KBC Groep · TOB inbegrepen' },
+    fees: { eu: '€2.50 (≤€250) · €5 (≤€1k)', us: '$2.50 / $5', etf: '€2.50–€15', fx: '0.5%', custody: '€0', transfer: 'free' },
+    ratings: { fees: 3, markets: 3, tools: 3, betax: 5, support: 4 }
+  },
+  mexem: {
+    bestFor:   { en: 'IBKR power, EU support',  fr: 'Puissance IBKR, support EU',  nl: 'IBKR-kracht, EU-steun' },
+    miniline:  { en: 'IBKR pricing · EU MiFID II',  fr: 'Tarifs IBKR · MiFID II européen', nl: 'IBKR-tarieven · EU MiFID II' },
+    fees: { eu: '€1 min (0.06%)', us: '$1 min (IB)', etf: '€1 min', fx: '0.05%', custody: '€0', transfer: '€0' },
+    ratings: { fees: 5, markets: 5, tools: 4, betax: 3, support: 4 }
+  },
+  lightyear: {
+    bestFor:   { en: 'ETF DCA beginners', fr: 'Débutants DCA ETF',  nl: 'ETF DCA-beginners' },
+    miniline:  { en: 'Free ETFs · 1.95% on idle EUR', fr: 'ETF gratuits · 1.95% sur EUR au repos', nl: 'Gratis ETFs · 1.95% op rustend EUR' },
+    fees: { eu: '1 free + 0.25%', us: '1 free + 0.25%', etf: 'Free', fx: '0.35% (€1k/m free)', custody: '€0', transfer: '€0' },
+    ratings: { fees: 5, markets: 3, tools: 2, betax: 3, support: 3 }
+  }
+};
+
+function _starRow(n) { return '<span class="rating-stars">' + '★'.repeat(n) + '☆'.repeat(5 - n) + '</span>'; }
+function _starRating(rating10) {
+  const r5 = parseFloat(rating10) / 2;
+  if (isNaN(r5)) return '';
+  const full = Math.floor(r5);
+  const half = (r5 - full) >= 0.5 ? 1 : 0;
+  return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(5 - full - half);
+}
+function _lang() { return (typeof currentLang !== 'undefined' ? currentLang : (window.currentLang || 'en')); }
+
+function renderFeatured() {
+  const grid = document.getElementById('featured-grid');
+  if (!grid) return;
+  const lang = _lang();
+  grid.innerHTML = FEATURED_BROKER_IDS.map(id => {
+    const broker = BROKERS_DATA.find(b => b.id === id);
+    const detail = FEATURED_DETAIL[id];
+    if (!broker || !detail) return '';
+    const initials = broker.name.split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+    const stars = _starRating(broker.rating);
+    const bestFor = detail.bestFor[lang] || detail.bestFor.en;
+    const miniline = detail.miniline[lang] || detail.miniline.en;
+    const labels = FEATURE_FEE_LABELS[lang] || FEATURE_FEE_LABELS.en;
+    return `
+      <article class="featured-card">
+        <span class="featured-best-for">${bestFor}</span>
+        <div class="featured-card-head">
+          <div class="featured-logo">
+            <span class="featured-logo-fallback">${initials}</span>
+            <img src="https://logo.clearbit.com/${broker.domain}" alt="${broker.name} logo" loading="lazy"
+                 onload="this.previousElementSibling.style.display='none'"
+                 onerror="this.style.display='none'">
+          </div>
+          <div>
+            <span class="featured-name">${broker.name}</span>
+            <span class="featured-tagline-mini">${miniline}</span>
+          </div>
+        </div>
+        <div class="featured-fees-list">
+          <div class="featured-fee-row"><span>${labels.eu}</span><span>${detail.fees.eu}</span></div>
+          <div class="featured-fee-row"><span>${labels.us}</span><span>${detail.fees.us}</span></div>
+          <div class="featured-fee-row"><span>${labels.fx}</span><span>${detail.fees.fx}</span></div>
+          <div class="featured-fee-row"><span>${labels.custody}</span><span>${detail.fees.custody}</span></div>
+          <div class="featured-fee-row"><span>${labels.transfer}</span><span>${detail.fees.transfer}</span></div>
+        </div>
+        <div class="featured-card-foot">
+          <span class="featured-rating"><span class="stars">${stars}</span> ${broker.rating}</span>
+          <a class="featured-cta" href="${broker.url}" target="_blank" rel="noopener">${labels.cta}</a>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+const FEATURE_FEE_LABELS = {
+  en: { eu:'EU stocks', us:'US stocks', fx:'FX spread', custody:'Custody (yr)', transfer:'Transfer out', cta:'Visit ↗' },
+  fr: { eu:'Actions EU', us:'Actions US', fx:'Spread change', custody:'Garde (an)', transfer:'Transfert sortant', cta:'Visiter ↗' },
+  nl: { eu:'EU-aandelen', us:'VS-aandelen', fx:'FX-spread', custody:'Bewaring (jaar)', transfer:'Overdracht uit', cta:'Bezoek ↗' }
+};
+
+const COMPARE_ROW_LABELS = {
+  en: { eu:'EU stock fee', us:'US stock fee', etf:'ETF fee', fx:'FX spread', custody:'Custody (annual)', transfer:'Transfer out', notes:'Sources: official broker fee schedules · DEGIRO Fee Schedule (Oct 2025) · IBKR Fixed Pricing Europe · Saxo Commissions Schedule · Bolero tarifs 2025 · MEXEM fees (Apr 2025) · Lightyear EU pricing. Bolero rates shown for trades up to €250 / $250. Saxo Classic/Platinum/VIP tiers vary.' },
+  fr: { eu:'Frais actions EU', us:'Frais actions US', etf:'Frais ETF', fx:'Spread change', custody:'Garde (annuelle)', transfer:'Transfert sortant', notes:'Sources : barèmes officiels des courtiers · DEGIRO Fee Schedule (oct. 2025) · IBKR Fixed Pricing Europe · Saxo Commissions · Tarifs Bolero 2025 · MEXEM fees (avr. 2025) · Lightyear EU pricing. Tarifs Bolero indiqués pour ordres ≤ €250 / $250. Paliers Saxo Classic/Platinum/VIP varient.' },
+  nl: { eu:'EU-aandelenkosten', us:'VS-aandelenkosten', etf:'ETF-kosten', fx:'FX-spread', custody:'Bewaring (jaarlijks)', transfer:'Overdracht uit', notes:'Bronnen: officiële tariefschema\'s van brokers · DEGIRO Fee Schedule (okt. 2025) · IBKR Fixed Pricing Europe · Saxo Commissions · Bolero-tarieven 2025 · MEXEM fees (apr. 2025) · Lightyear EU pricing. Bolero-tarieven getoond voor orders tot €250 / $250.' }
+};
+
+function renderCompareTable() {
+  const tbody = document.getElementById('compare-tbody');
+  if (!tbody) return;
+  const lang = _lang();
+  const labels = COMPARE_ROW_LABELS[lang] || COMPARE_ROW_LABELS.en;
+  const rows = [
+    { key:'eu',       label: labels.eu },
+    { key:'us',       label: labels.us },
+    { key:'etf',      label: labels.etf },
+    { key:'fx',       label: labels.fx },
+    { key:'custody',  label: labels.custody },
+    { key:'transfer', label: labels.transfer }
+  ];
+  tbody.innerHTML = rows.map(r => {
+    const cells = FEATURED_BROKER_IDS.map(bid => `<td>${FEATURED_DETAIL[bid].fees[r.key]}</td>`).join('');
+    return `<tr><td>${r.label}</td>${cells}</tr>`;
+  }).join('');
+  const notes = document.getElementById('compare-notes');
+  if (notes) notes.textContent = labels.notes;
+}
+
+function renderRatings() {
+  const tbody = document.getElementById('ratings-tbody');
+  if (!tbody) return;
+  tbody.innerHTML = FEATURED_BROKER_IDS.map(bid => {
+    const broker = BROKERS_DATA.find(b => b.id === bid);
+    const r = FEATURED_DETAIL[bid].ratings;
+    return `<tr>
+      <td>${broker ? broker.name : bid}</td>
+      <td>${_starRow(r.fees)}</td>
+      <td>${_starRow(r.markets)}</td>
+      <td>${_starRow(r.tools)}</td>
+      <td>${_starRow(r.betax)}</td>
+      <td>${_starRow(r.support)}</td>
+      <td><span class="rating-overall">${broker ? broker.rating : '—'}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function calcBrokerCost(brokerId, monthly, years, profile) {
+  const tradesPerMonth = profile === 'active' ? 4 : 2;
+  const halfAmt = monthly / 2;
+  const usPortion = monthly / 2;
+  let m = 0;
+  switch (brokerId) {
+    case 'ibkr':
+      m = 3 * tradesPerMonth + 0.00002 * monthly;
+      break;
+    case 'degiro':
+      m = (1 + 1.85) * (tradesPerMonth / 2) + 0.0025 * usPortion;
+      break;
+    case 'saxo':
+      m = 1.85 * tradesPerMonth + 0.005 * usPortion * 0.5;
+      break;
+    case 'bolero': {
+      const tier = halfAmt <= 250 ? 2.5 : (halfAmt <= 1000 ? 5 : 15);
+      m = tier * tradesPerMonth;
+      break;
+    }
+    case 'mexem':
+      m = 1 * tradesPerMonth + 0.0005 * usPortion + 0.0006 * halfAmt * 0.3;
+      break;
+    case 'lightyear':
+      m = Math.max(1, 0.0025 * halfAmt) * Math.max(0, tradesPerMonth - 1) + 0.0035 * Math.max(0, usPortion - 1000);
+      break;
+  }
+  return m * 12 * years;
+}
+
+const CALC_LABELS = {
+  en: { mo:' / mo', yrs:' years', best:'Best' },
+  fr: { mo:' / mois', yrs:' ans', best:'Min' },
+  nl: { mo:' / mnd', yrs:' jaar', best:'Min' }
+};
+
+function renderCalc() {
+  const monthlyEl = document.getElementById('calc-monthly');
+  const yearsEl = document.getElementById('calc-years');
+  const profileEl = document.getElementById('calc-profile');
+  if (!monthlyEl || !yearsEl || !profileEl) return;
+  const monthly = parseInt(monthlyEl.value, 10);
+  const years = parseInt(yearsEl.value, 10);
+  const profile = profileEl.value;
+  const lang = _lang();
+  const lbl = CALC_LABELS[lang] || CALC_LABELS.en;
+  document.getElementById('calc-monthly-v').textContent = '€' + monthly.toLocaleString() + lbl.mo;
+  document.getElementById('calc-years-v').textContent = years + lbl.yrs;
+  const results = FEATURED_BROKER_IDS.map(id => {
+    const broker = BROKERS_DATA.find(b => b.id === id);
+    return { id, name: broker ? broker.name : id, cost: calcBrokerCost(id, monthly, years, profile) };
+  }).sort((a, b) => a.cost - b.cost);
+  const max = Math.max(...results.map(r => r.cost), 1);
+  document.getElementById('calc-results').innerHTML = results.map((r, i) => {
+    const pct = (r.cost / max) * 100;
+    const isBest = i === 0;
+    return `<div class="calc-result-row${isBest ? ' calc-best' : ''}">
+      <span class="calc-result-name">${r.name}</span>
+      <span class="calc-result-cost">€${Math.round(r.cost).toLocaleString()}</span>
+      <div class="calc-result-bar"><div style="width:${pct}%"></div></div>
+      ${isBest ? `<span class="calc-best-tag">${lbl.best}</span>` : '<span class="calc-empty-tag"></span>'}
+    </div>`;
+  }).join('');
+}
+
+let _calcInited = false;
+function initBrokerCalc() {
+  if (_calcInited) { renderCalc(); return; }
+  ['calc-monthly', 'calc-years', 'calc-profile'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', renderCalc);
+  });
+  _calcInited = true;
+  renderCalc();
+}
+
+function renderPlatformsAll() {
+  renderFeatured();
+  renderCompareTable();
+  renderRatings();
+  initBrokerCalc();
+  renderPlatforms();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// EDUCATION · Books library
+// ═══════════════════════════════════════════════════════════════════════════
+const BOOKS_DATA = [
+  { title: "The Intelligent Investor", author: "Benjamin Graham", level: "advanced", themes: ["value"], isbn: "9780060555665", year: 1949, summary: { en: "The bible of value investing.", fr: "La bible du value investing.", nl: "De bijbel van value beleggen." } },
+  { title: "The Little Book of Common Sense Investing", author: "John C. Bogle", level: "beginner", themes: ["indexing"], isbn: "9781119404507", year: 2007, summary: { en: "The case for low-cost index funds.", fr: "Plaidoyer pour les fonds indiciels.", nl: "Pleidooi voor low-cost indexfondsen." } },
+  { title: "A Random Walk Down Wall Street", author: "Burton G. Malkiel", level: "beginner", themes: ["indexing"], isbn: "9780393358384", year: 1973, summary: { en: "Why active managers rarely beat the market.", fr: "Pourquoi les gérants actifs battent rarement le marché.", nl: "Waarom actieve managers de markt zelden verslaan." } },
+  { title: "Common Stocks and Uncommon Profits", author: "Philip A. Fisher", level: "advanced", themes: ["value"], isbn: "9780471445500", year: 1958, summary: { en: "The 15-point checklist for great companies.", fr: "La checklist en 15 points pour les bonnes entreprises.", nl: "De 15-puntenchecklist voor topbedrijven." } },
+  { title: "Margin of Safety", author: "Seth A. Klarman", level: "advanced", themes: ["value", "risk"], isbn: "0887305105", year: 1991, summary: { en: "Risk-averse value investing.", fr: "Value investing averse au risque.", nl: "Risicomijdend value beleggen." } },
+  { title: "One Up On Wall Street", author: "Peter Lynch", level: "beginner", themes: ["value"], isbn: "9780743200400", year: 1989, summary: { en: "Lynch's 'invest in what you know' approach.", fr: "L'approche 'investir dans ce que vous connaissez'.", nl: "Beleg in wat je kent — Lynch's filosofie." } },
+  { title: "The Most Important Thing", author: "Howard Marks", level: "advanced", themes: ["risk"], isbn: "9780231153683", year: 2011, summary: { en: "Second-level thinking and risk awareness.", fr: "Pensée de second niveau et conscience du risque.", nl: "Tweede-orde denken en risicobewustzijn." } },
+  { title: "Principles", author: "Ray Dalio", level: "intermediate", themes: ["macro"], isbn: "9781501124020", year: 2017, summary: { en: "Bridgewater founder's principles for life and work.", fr: "Les principes du fondateur de Bridgewater.", nl: "De principes van Bridgewater's oprichter." } },
+  { title: "Stocks for the Long Run", author: "Jeremy J. Siegel", level: "intermediate", themes: ["indexing"], isbn: "9780071800518", year: 1994, summary: { en: "Equity outperformance over the long term.", fr: "Surperformance des actions sur le long terme.", nl: "Outperformance van aandelen op lange termijn." } },
+  { title: "The Black Swan", author: "Nassim N. Taleb", level: "advanced", themes: ["risk"], isbn: "9780812973815", year: 2007, summary: { en: "The impact of the highly improbable.", fr: "L'impact des événements hautement improbables.", nl: "De impact van het hoogst onwaarschijnlijke." } },
+  { title: "Thinking, Fast and Slow", author: "Daniel Kahneman", level: "intermediate", themes: ["behavioral"], isbn: "9780374533557", year: 2011, summary: { en: "Behavioral biases and decision-making.", fr: "Biais comportementaux et prise de décision.", nl: "Gedragsbiases en besluitvorming." } },
+  { title: "Security Analysis", author: "Benjamin Graham, David L. Dodd", level: "advanced", themes: ["value"], isbn: "9780071592536", year: 1934, summary: { en: "The foundational textbook of fundamental analysis.", fr: "Le manuel fondateur de l'analyse fondamentale.", nl: "Het fundamentele leerboek van fundamentele analyse." } },
+  { title: "The Bogleheads' Guide to Investing", author: "Mel Lindauer, Taylor Larimore, Michael LeBoeuf", level: "beginner", themes: ["indexing"], isbn: "9781118921289", year: 2006, summary: { en: "Practical guide to the Bogleheads philosophy.", fr: "Guide pratique de la philosophie Bogleheads.", nl: "Praktische gids voor de Bogleheads-filosofie." } },
+  { title: "Reminiscences of a Stock Operator", author: "Edwin Lefèvre", level: "intermediate", themes: ["trading"], isbn: "9780471770886", year: 1923, summary: { en: "Jesse Livermore's classic tale of speculation.", fr: "Le récit classique de la spéculation par Jesse Livermore.", nl: "Jesse Livermore's klassieke speculatieverhaal." } },
+  { title: "Antifragile", author: "Nassim N. Taleb", level: "advanced", themes: ["risk"], isbn: "9780812979688", year: 2012, summary: { en: "Things that gain from disorder.", fr: "Les choses qui profitent du désordre.", nl: "Dingen die baat hebben bij wanorde." } },
+  { title: "When Genius Failed", author: "Roger Lowenstein", level: "intermediate", themes: ["risk", "macro"], isbn: "9780375758256", year: 2000, summary: { en: "The rise and fall of Long-Term Capital Management.", fr: "Ascension et chute de Long-Term Capital Management.", nl: "Opkomst en val van Long-Term Capital Management." } },
+  { title: "The Essays of Warren Buffett", author: "Warren Buffett, Lawrence A. Cunningham", level: "intermediate", themes: ["value"], isbn: "9781611637588", year: 1997, summary: { en: "Buffett's annual letters distilled by topic.", fr: "Les lettres annuelles de Buffett organisées par thème.", nl: "Buffett's jaarbrieven gedistilleerd per thema." } },
+  { title: "Misbehaving", author: "Richard H. Thaler", level: "intermediate", themes: ["behavioral"], isbn: "9780393352795", year: 2015, summary: { en: "The making of behavioral economics.", fr: "La naissance de l'économie comportementale.", nl: "Het ontstaan van gedragseconomie." } }
+];
+
+let _eduFilter = { level: 'all', theme: 'all' };
+function setEduLevel(l) {
+  _eduFilter.level = l;
+  document.querySelectorAll('#edu-level-chips .edu-chip').forEach(b => b.classList.toggle('on', b.dataset.level === l));
+  renderBooks();
+}
+function setEduTheme(t) {
+  _eduFilter.theme = t;
+  document.querySelectorAll('#edu-theme-chips .edu-chip').forEach(b => b.classList.toggle('on', b.dataset.theme === t));
+  renderBooks();
+}
+function renderBooks() {
+  const grid = document.getElementById('edu-grid');
+  if (!grid) return;
+  const search = (document.getElementById('edu-search')?.value || '').toLowerCase().trim();
+  const lang = (typeof currentLang !== 'undefined' ? currentLang : 'en');
+  const filtered = BOOKS_DATA.filter(b => {
+    if (_eduFilter.level !== 'all' && b.level !== _eduFilter.level) return false;
+    if (_eduFilter.theme !== 'all' && !b.themes.includes(_eduFilter.theme)) return false;
+    if (search && !(b.title.toLowerCase().includes(search) || b.author.toLowerCase().includes(search))) return false;
+    return true;
+  });
+  if (!filtered.length) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);font-size:13px;">No books match your filters.</div>';
+    return;
+  }
+  const levelLabel = { en: { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' }, fr: { beginner: 'Débutant', intermediate: 'Intermédiaire', advanced: 'Avancé' }, nl: { beginner: 'Beginner', intermediate: 'Gevorderd', advanced: 'Expert' } }[lang] || { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
+  const themeLabel = { en: { value: 'Value', indexing: 'Indexing', macro: 'Macro', behavioral: 'Behavioral', risk: 'Risk', trading: 'Trading' }, fr: { value: 'Value', indexing: 'Indexation', macro: 'Macro', behavioral: 'Comportement', risk: 'Risque', trading: 'Trading' }, nl: { value: 'Value', indexing: 'Indexering', macro: 'Macro', behavioral: 'Gedrag', risk: 'Risico', trading: 'Trading' } }[lang] || { value: 'Value', indexing: 'Indexing', macro: 'Macro', behavioral: 'Behavioral', risk: 'Risk', trading: 'Trading' };
+  grid.innerHTML = filtered.map(b => {
+    const summary = b.summary[lang] || b.summary.en || '';
+    const isbn = b.isbn.replace(/[^0-9X]/gi, '');
+    const cover = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
+    const amazon = `https://www.amazon.com/s?k=${encodeURIComponent(b.title + ' ' + b.author)}&i=stripbooks`;
+    const fnac = `https://www.fnac.com/SearchResult/ResultList.aspx?Search=${encodeURIComponent(b.title)}&sft=1&sl=Livre`;
+    const lvlClass = b.level === 'beginner' ? 'level-beg' : (b.level === 'intermediate' ? 'level-int' : 'level-adv');
+    return `
+      <article class="edu-book">
+        <div class="edu-book-cover">
+          <div class="edu-cover-fallback">
+            <span class="edu-cover-fallback-title">${b.title}</span>
+            <span class="edu-cover-fallback-author">${b.author}</span>
+          </div>
+          <img src="${cover}" alt="${b.title} cover" loading="lazy" onerror="this.style.display='none'" onload="this.previousElementSibling.style.display='none'">
+        </div>
+        <div class="edu-book-body">
+          <div class="edu-book-title">${b.title}</div>
+          <div class="edu-book-author">${b.author} · ${b.year}</div>
+          <div style="font-size:11.5px;color:var(--text-3);line-height:1.45;">${summary}</div>
+          <div class="edu-book-tags">
+            <span class="edu-tag ${lvlClass}">${levelLabel[b.level]}</span>
+            ${b.themes.map(t => `<span class="edu-tag theme">${themeLabel[t] || t}</span>`).join('')}
+          </div>
+          <div class="edu-book-foot">
+            <a class="edu-buy" href="${amazon}" target="_blank" rel="noopener">Amazon ↗</a>
+            <a class="edu-buy" href="${fnac}" target="_blank" rel="noopener">Fnac ↗</a>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════════════════════════
 function fillYearSelect(elId, defVal) {
@@ -7395,13 +9208,20 @@ function fillYearSelect(elId, defVal) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Theme
+  // Theme + theme mode (light/dark/auto)
   let savedTheme = "light";
   try { savedTheme = localStorage.getItem("qtrh_theme") || "light"; } catch(e) {}
-  applyTheme(savedTheme === "dark");
+  try { _themeMode = localStorage.getItem("qtrh_theme_mode") || (savedTheme === "dark" ? "dark" : "light"); } catch(e) {}
+  if (_themeMode === 'auto') {
+    applyTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  } else {
+    applyTheme(savedTheme === "dark");
+  }
 
   // Language
   setLang(currentLang);
+  // Sync settings panel selectors after init
+  setTimeout(_syncSettings, 100);
 
   // Year selects
   fillYearSelect("bt-start", 2000);
